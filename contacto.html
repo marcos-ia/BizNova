@@ -1,63 +1,30 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto — Biz Nova</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+<!-- ========================= -->
+<!--         CONTACTO          -->
+<!-- ========================= -->
+<section class="contact-section" id="contacto">
+  <div class="contact-container">
+    <h2 class="contact-title">Contacto</h2>
+    <p class="contact-subtitle">
+      ¿Quieres hablar conmigo o colaborar en un proyecto? Escríbeme.
+    </p>
 
-<nav class="navbar">
-    <div class="nav-logo" onclick="location.href='index.html'">Biz Nova</div>
-    <ul class="nav-links">
-        <li onclick="location.href='index.html'">Inicio</li>
-        <li onclick="location.href='index.html#ideas'">Ideas</li>
-        <li onclick="location.href='sobre.html'">Sobre</li>
-        <li onclick="location.href='contacto.html'">Contacto</li>
-    </ul>
-</nav>
+    <form class="contact-form">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" placeholder="Tu nombre">
+      </div>
 
-<header>
-    <h1>Contacto</h1>
-    <p>Estamos aquí para ayudarte a empezar tu camino emprendedor</p>
-</header>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="tuemail@example.com">
+      </div>
 
-<div class="container">
-    <div class="card">
+      <div class="form-group">
+        <label>Mensaje</label>
+        <textarea placeholder="Escribe tu mensaje aquí..."></textarea>
+      </div>
 
-        <h2>Ponte en contacto</h2>
-        <p>
-            Si tienes dudas, quieres proponer una idea o necesitas orientación sobre algún modelo de negocio, 
-            puedes escribirnos a través del formulario o por nuestras redes sociales.
-        </p>
-
-        <form class="contact-form">
-            <label>Nombre</label>
-            <input type="text" placeholder="Tu nombre">
-
-            <label>Email</label>
-            <input type="email" placeholder="tucorreo@example.com">
-
-            <label>Mensaje</label>
-            <textarea rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
-
-            <button type="submit" class="btn">Enviar mensaje</button>
-        </form>
-
-        <h2>O si lo prefieres…</h2>
-
-        <p><strong>Email:</strong> contacto@biznova.com</p>
-        <p><strong>Instagram:</strong> @biznova</p>
-        <p><strong>WhatsApp:</strong> +34 600 000 000</p>
-
-        <a href="index.html" class="btn">Volver al inicio</a>
-    </div>
-</div>
-
-<footer>
-    © 2025 Biz Nova — Plataforma de Ideas de Negocio Innovadoras
-</footer>
-
-</body>
-</html>
+      <button type="submit" class="contact-btn">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
