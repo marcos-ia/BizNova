@@ -1,140 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marcos IA Academy</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biz Nova — Ideas de Negocios Innovadoras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-  <!-- ========================= -->
-  <!--         NAVBAR            -->
-  <!-- ========================= -->
-  <header class="navbar">
-    <div class="nav-logo">Marcos IA Academy</div>
-    <nav class="nav-links">
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#negocios">Negocios</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
+<nav class="navbar">
+    <div class="nav-logo" onclick="location.href='index.html'">Biz Nova</div>
+    <ul class="nav-links">
+        <li onclick="location.href='index.html'">Inicio</li>
+        <li onclick="location.href='#ideas'">Ideas</li>
+        <li onclick="location.href='sobre.html'">Sobre</li>
+        <li onclick="location.href='contacto.html'">Contacto</li>
+    </ul>
+</nav>
 
+<header>
+    <h1>Biz Nova</h1>
+    <p>Donde nacen las ideas del futuro</p>
+</header>
 
-  <!-- ========================= -->
-  <!--        HERO / INICIO      -->
-  <!-- ========================= -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <h1 class="hero-title">Bienvenido a Marcos IA Academy</h1>
-      <p class="hero-subtitle">
-        Innovación, creatividad y tecnología unidas en un solo lugar.
-      </p>
-      <a href="#negocios" class="hero-btn">Explorar ideas</a>
-    </div>
-  </section>
+<div class="container" id="ideas">
+    <h2 class="section-title">Explora ideas de negocio innovadoras</h2>
 
+    <div class="cards">
 
-  <!-- ========================= -->
-  <!--        SOBRE MÍ           -->
-  <!-- ========================= -->
-  <section class="about-section" id="sobre-mi">
-    <div class="about-container">
-      <div class="about-text">
-        <h2 class="about-title">Sobre mí</h2>
-        <p class="about-description">
-          Soy Marcos, un joven desarrollador apasionado por la tecnología, el diseño web y la inteligencia artificial. 
-          Me encanta crear proyectos modernos, funcionales y visualmente atractivos. 
-          Siempre estoy aprendiendo cosas nuevas y mejorando mis habilidades para construir experiencias digitales increíbles.
-        </p>
-        <p class="about-description">
-          Este proyecto es una muestra de mi creatividad y mis ganas de seguir creciendo en el mundo del desarrollo web.
-        </p>
-      </div>
-
-      <div class="about-photo">
-        <div class="photo-frame"></div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ========================= -->
-  <!--   NEGOCIOS INNOVADORES   -->
-  <!-- ========================= -->
-  <section class="ideas-section" id="negocios">
-    <h2 class="ideas-title">Negocios Innovadores</h2>
-    <p class="ideas-subtitle">Explora ideas modernas, creativas y con potencial real.</p>
-
-    <div class="ideas-grid">
-
-      <div class="idea-card">
-        <h3>1. Tienda de Productos Digitales</h3>
-        <p>Vende plantillas, iconos, diseños, ebooks o recursos digitales sin necesidad de stock.</p>
-        <a href="#" class="idea-btn">Ver más</a>
-      </div>
-
-      <div class="idea-card">
-        <h3>2. Agencia de Automatización IA</h3>
-        <p>Ayuda a negocios a automatizar tareas con inteligencia artificial y herramientas modernas.</p>
-        <a href="#" class="idea-btn">Ver más</a>
-      </div>
-
-      <div class="idea-card">
-        <h3>3. Cursos y Formación Online</h3>
-        <p>Crea cursos sobre habilidades digitales, programación, diseño o IA.</p>
-        <a href="#" class="idea-btn">Ver más</a>
-      </div>
-
-      <div class="idea-card">
-        <h3>4. Desarrollo de Webs Modernas</h3>
-        <p>Ofrece webs rápidas, modernas y optimizadas para negocios locales o emprendedores.</p>
-        <a href="#" class="idea-btn">Ver más</a>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ========================= -->
-  <!--         CONTACTO          -->
-  <!-- ========================= -->
-  <section class="contact-section" id="contacto">
-    <div class="contact-container">
-      <h2 class="contact-title">Contacto</h2>
-      <p class="contact-subtitle">
-        ¿Quieres hablar conmigo o colaborar en un proyecto? Escríbeme.
-      </p>
-
-      <form class="contact-form">
-        <div class="form-group">
-          <label>Nombre</label>
-          <input type="text" placeholder="Tu nombre">
+        <div class="card" onclick="location.href='ideas/smma.html'">
+            <h3>SMMA</h3>
+            <p>Agencia de marketing para negocios locales.</p>
         </div>
 
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="tuemail@example.com">
+        <div class="card" onclick="location.href='ideas/ugc.html'">
+            <h3>UGC Agency</h3>
+            <p>Crea vídeos tipo TikTok para marcas.</p>
         </div>
 
-        <div class="form-group">
-          <label>Mensaje</label>
-          <textarea placeholder="Escribe tu mensaje aquí..."></textarea>
+        <div class="card" onclick="location.href='ideas/microsaas.html'">
+            <h3>Micro SaaS</h3>
+            <p>Herramientas web pequeñas con ingresos pasivos.</p>
         </div>
 
-        <button type="submit" class="contact-btn">Enviar mensaje</button>
-      </form>
+        <div class="card" onclick="location.href='ideas/ia.html'">
+            <h3>Automatización con IA</h3>
+            <p>Chatbots, reservas automáticas y flujos inteligentes.</p>
+        </div>
+
+        <div class="card" onclick="location.href='ideas/edicion-video.html'">
+            <h3>Edición de Vídeo</h3>
+            <p>Contenido corto para creadores.</p>
+        </div>
+
+        <div class="card" onclick="location.href='ideas/printondemand.html'">
+            <h3>Print-on-Demand</h3>
+            <p>Productos personalizados sin stock.</p>
+        </div>
+
     </div>
-  </section>
+</div>
 
-
-  <!-- ========================= -->
-  <!--          FOOTER           -->
-  <!-- ========================= -->
-  <footer class="footer">
-    <p>© 2025 Marcos IA Academy — Innovación y creatividad</p>
-  </footer>
+<footer>
+    © 2025 Biz Nova — Plataforma de Ideas de Negocio Innovadoras
+</footer>
 
 </body>
 </html>
