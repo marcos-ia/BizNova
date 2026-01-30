@@ -136,5 +136,19 @@
     <p>© 2025 Marcos IA Academy — Innovación y creatividad</p>
   </footer>
 
+
+  <!-- ========================= -->
+  <!--   SCRIPT PARA EL SCROLL   -->
+  <!-- ========================= -->
+  <script>
+    // Bloquear scroll al entrar
+    document.body.style.overflow = "hidden";
+
+    // Desbloquear scroll al pulsar el botón
+    document.querySelector(".hero-btn").addEventListener("click", () => {
+      document.body.style.overflow = "auto";
+    });
+  </script>
+
 </body>
 </html>
