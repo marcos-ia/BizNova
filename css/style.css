@@ -1,191 +1,270 @@
-/* ------------------------------
-   FUENTE Y ESTILOS GENERALES
------------------------------- */
+/* ========================= */
+/*        RESET GLOBAL       */
+/* ========================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-    background: #f7f7fb;
-    color: #333;
-    line-height: 1.6;
+  background: #F5F7FA;
+  color: #1A1A1A;
+  line-height: 1.6;
 }
 
-/* ------------------------------
-   NAVBAR
------------------------------- */
+/* ========================= */
+/*          NAVBAR           */
+/* ========================= */
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 999;
+  width: 100%;
+  background: #0066FF;
+  color: #fff;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 }
 
 .nav-logo {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #4f46e5;
-    cursor: pointer;
+  font-size: 22px;
+  font-weight: 700;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
+.nav-links a {
+  margin-left: 25px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
-.nav-links li {
-    cursor: pointer;
-    font-size: 1rem;
-    transition: 0.2s ease;
+.nav-links a:hover {
+  color: #4DA3FF;
 }
 
-.nav-links li:hover {
-    color: #4f46e5;
-    transform: translateY(-2px);
+/* ========================= */
+/*        HERO SECTION       */
+/* ========================= */
+.hero-section {
+  height: 100vh;
+  background: linear-gradient(135deg, #0066FF, #7A5CFF);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  color: #fff;
 }
 
-/* ------------------------------
-   HEADER
------------------------------- */
-header {
+.hero-title {
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.hero-subtitle {
+  margin: 15px 0;
+  font-size: 20px;
+}
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #fff;
+  color: #0066FF;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  background: #E6E6E6;
+}
+
+/* ========================= */
+/*        SOBRE MÍ           */
+/* ========================= */
+.about-section {
+  padding: 100px 40px;
+  background: #fff;
+}
+
+.about-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.about-title {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.about-description {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.about-photo {
+  width: 300px;
+  height: 300px;
+}
+
+.photo-frame {
+  width: 100%;
+  height: 100%;
+  background: #ddd;
+  border-radius: 20px;
+  border: 4px solid #0066FF;
+}
+
+/* ========================= */
+/*     IDEAS / NEGOCIOS      */
+/* ========================= */
+.ideas-section {
+  padding: 100px 40px;
+  background: #F5F7FA;
+  text-align: center;
+}
+
+.ideas-title {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.ideas-subtitle {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.ideas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.idea-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  border-top: 4px solid #0066FF;
+}
+
+.idea-card:hover {
+  transform: translateY(-5px);
+}
+
+.idea-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #0066FF;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.idea-btn:hover {
+  background: #004FCC;
+}
+
+/* ========================= */
+/*         CONTACTO          */
+/* ========================= */
+.contact-section {
+  padding: 100px 40px;
+  background: #fff;
+}
+
+.contact-container {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: #0066FF;
+}
+
+.contact-btn {
+  padding: 12px;
+  background: #0066FF;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-btn:hover {
+  background: #004FCC;
+}
+
+/* ========================= */
+/*          FOOTER           */
+/* ========================= */
+.footer {
+  background: #0066FF;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* ========================= */
+/*      RESPONSIVE FIXES     */
+/* ========================= */
+@media (max-width: 900px) {
+  .about-container {
+    flex-direction: column;
     text-align: center;
-    padding: 120px 20px 40px;
-    background: white;
-}
+  }
 
-header h1 {
-    font-size: 2.5rem;
-    color: #4f46e5;
-}
-
-header p {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    color: #555;
-}
-
-/* ------------------------------
-   CONTENEDOR GENERAL
------------------------------- */
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    padding: 40px 0;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-    color: #333;
-}
-
-/* ------------------------------
-   TARJETAS DE IDEAS
------------------------------- */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-}
-
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    cursor: pointer;
-    transition: 0.25s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-}
-
-.card h3 {
-    color: #4f46e5;
-    margin-bottom: 10px;
-}
-
-.card p {
-    color: #555;
-}
-
-/* ------------------------------
-   VIDEO RESPONSIVE
------------------------------- */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-    overflow: hidden;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-/* ------------------------------
-   BOTÓN
------------------------------- */
-.btn {
-    display: inline-block;
+  .about-photo {
     margin-top: 20px;
-    padding: 12px 20px;
-    background: #4f46e5;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: 0.2s ease;
+  }
 }
-
-.btn:hover {
-    background: #3b36c8;
-}
-
-/* ------------------------------
-   FOOTER
------------------------------- */
-footer {
-    text-align: center;
-    padding: 25px;
-    background: white;
-    margin-top: 40px;
-    color: #777;
-}
-
-/* ------------------------------
-   RESPONSIVE
------------------------------- */
-@media (max-width: 700px) {
-    .nav-links {
-        display: none;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    .card {
-        padding: 20px;
-    }
