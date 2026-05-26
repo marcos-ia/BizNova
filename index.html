@@ -3,1377 +3,693 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Campoluz Levante · Profesionales</title>
+<title>Campoluz Levante · Vinos & Destilados Premium</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --cream: #F5F0E8;
-    --cream-dark: #EDE5D5;
-    --wine: #6B1F2A;
-    --wine-light: #8B3040;
-    --wine-deep: #4A1219;
-    --gold: #C4A45A;
-    --gold-light: #D4B870;
-    --charcoal: #2A1F1A;
-    --text-warm: #4A3728;
-    --text-mid: #7A6558;
-    --border: rgba(107, 31, 42, 0.15);
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Jost', sans-serif;
-    background: var(--cream);
-    color: var(--charcoal);
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.5rem 4rem;
-    background: rgba(245, 240, 232, 0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    animation: fadeDown 0.8s ease both;
-  }
-
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    color: var(--wine);
-    text-transform: uppercase;
-    text-decoration: none;
-  }
-
-  .nav-logo span {
-    color: var(--gold);
-  }
-
-  .nav-links {
-    display: flex; gap: 2.5rem; list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--text-warm);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .nav-links a:hover { color: var(--wine); }
-
-  .nav-cta {
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.6rem 1.6rem;
-    border: 1px solid var(--wine);
-    color: var(--wine);
-    text-decoration: none;
-    transition: all 0.3s;
-  }
-
-  .nav-cta:hover {
-    background: var(--wine);
-    color: var(--cream);
-  }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 80px;
-  }
-
-  .hero-left {
-    background: var(--wine-deep);
-    padding: 6rem 5rem 6rem 6rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-left::before {
-    content: '';
-    position: absolute;
-    top: -100px; left: -100px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(196,164,90,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-left::after {
-    content: '';
-    position: absolute;
-    bottom: 0; right: 0;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(139,48,64,0.3) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-tag {
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 2rem;
-    animation: fadeUp 0.9s 0.3s ease both;
-    display: flex; align-items: center; gap: 1rem;
-  }
-
-  .hero-tag::before {
-    content: '';
-    display: block;
-    width: 40px; height: 1px;
-    background: var(--gold);
-  }
-
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--cream);
-    margin-bottom: 2rem;
-    animation: fadeUp 0.9s 0.5s ease both;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold-light);
-  }
-
-  .hero-sub {
-    font-size: 0.95rem;
-    font-weight: 300;
-    line-height: 1.8;
-    color: rgba(245,240,232,0.65);
-    max-width: 420px;
-    margin-bottom: 3rem;
-    animation: fadeUp 0.9s 0.7s ease both;
-  }
-
-  .hero-actions {
-    display: flex; gap: 1rem;
-    animation: fadeUp 0.9s 0.9s ease both;
-  }
-
-  .btn-primary {
-    padding: 1rem 2.5rem;
-    background: var(--gold);
-    color: var(--wine-deep);
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s;
-  }
-
-  .btn-primary:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
-  }
-
-  .btn-ghost {
-    padding: 1rem 2.5rem;
-    background: transparent;
-    color: var(--cream);
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    border: 1px solid rgba(245,240,232,0.3);
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s;
-  }
-
-  .btn-ghost:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-  }
-
-  .hero-right {
-    background: var(--cream-dark);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero-visual {
-    width: 100%; height: 100%;
-    position: absolute;
-    top: 0; left: 0;
-    background:
-      radial-gradient(ellipse at 30% 20%, rgba(107,31,42,0.08) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 80%, rgba(196,164,90,0.1) 0%, transparent 50%);
-  }
-
-  .bottles-display {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: flex-end;
-    gap: 1.5rem;
-    padding: 4rem 3rem;
-    animation: fadeUp 1s 0.4s ease both;
-  }
-
-  .bottle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .bottle-shape {
-    border-radius: 40px 40px 8px 8px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(74,18,25,0.25), inset 0 1px 0 rgba(255,255,255,0.2);
-    transition: transform 0.4s ease;
-  }
-
-  .bottle-shape:hover {
-    transform: translateY(-8px);
-  }
-
-  .bottle-shape::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 15%;
-    width: 25%; height: 100%;
-    background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%);
-    border-radius: 10px;
-  }
-
-  .bottle-1 .bottle-shape { width: 60px; height: 160px; background: linear-gradient(180deg, #2A0A10 0%, #6B1F2A 60%, #4A1219 100%); }
-  .bottle-2 .bottle-shape { width: 68px; height: 200px; background: linear-gradient(180deg, #1A2A1A 0%, #2D4A2D 50%, #1A2A1A 100%); }
-  .bottle-3 .bottle-shape { width: 60px; height: 175px; background: linear-gradient(180deg, #3A2010 0%, #7A5030 50%, #4A2810 100%); }
-  .bottle-4 .bottle-shape { width: 55px; height: 145px; background: linear-gradient(180deg, #1A1A2A 0%, #2A2A5A 50%, #1A1A3A 100%); }
-
-  .bottle-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    color: var(--text-mid);
-    text-align: center;
-  }
-
-  .hero-stats {
-    position: absolute;
-    bottom: 3rem; right: 3rem;
-    display: flex; flex-direction: column; gap: 1.5rem;
-    z-index: 3;
-  }
-
-  .stat {
-    text-align: right;
-    animation: fadeLeft 0.9s ease both;
-  }
-
-  .stat:nth-child(1) { animation-delay: 0.8s; }
-  .stat:nth-child(2) { animation-delay: 1s; }
-  .stat:nth-child(3) { animation-delay: 1.2s; }
-
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: var(--wine);
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-mid);
-  }
-
-  /* ── SECTION COMMON ── */
-  section { padding: 7rem 6rem; }
-
-  .section-tag {
-    font-size: 0.68rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 1rem;
-  }
-
-  .section-tag::before {
-    content: ''; display: block;
-    width: 32px; height: 1px;
-    background: var(--gold);
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
-    font-weight: 300;
-    line-height: 1.15;
-    color: var(--charcoal);
-    margin-bottom: 1.5rem;
-  }
-
-  .section-title em {
-    font-style: italic;
-    color: var(--wine);
-  }
-
-  /* ── VENTAJAS ── */
-  .ventajas {
-    background: var(--cream);
-  }
-
-  .ventajas-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    margin-top: 5rem;
-    border: 1px solid var(--border);
-  }
-
-  .ventaja {
-    padding: 3.5rem;
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    transition: background 0.4s;
-    cursor: default;
-  }
-
-  .ventaja:nth-child(2n) { border-right: none; }
-  .ventaja:nth-last-child(-n+2) { border-bottom: none; }
-
-  .ventaja::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 0; height: 2px;
-    background: var(--wine);
-    transition: width 0.5s ease;
-  }
-
-  .ventaja:hover::before { width: 100%; }
-  .ventaja:hover { background: rgba(107,31,42,0.03); }
-
-  .ventaja-icon {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    display: block;
-  }
-
-  .ventaja-num {
-    position: absolute;
-    top: 2rem; right: 2.5rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 4rem;
-    font-weight: 300;
-    color: rgba(107,31,42,0.06);
-    line-height: 1;
-  }
-
-  .ventaja h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--wine);
-    margin-bottom: 0.75rem;
-  }
-
-  .ventaja p {
-    font-size: 0.9rem;
-    line-height: 1.75;
-    color: var(--text-mid);
-    font-weight: 300;
-  }
-
-  /* ── CATEGORÍAS ── */
-  .categorias {
-    background: var(--wine-deep);
-    padding: 7rem 6rem;
-  }
-
-  .categorias .section-tag { color: var(--gold); }
-  .categorias .section-title { color: var(--cream); }
-  .categorias .section-title em { color: var(--gold-light); }
-
-  .cat-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5px;
-    margin-top: 4rem;
-    background: rgba(245,240,232,0.1);
-  }
-
-  .cat-item {
-    background: var(--wine-deep);
-    padding: 2.5rem 2rem;
-    text-align: center;
-    border: 1px solid rgba(245,240,232,0.08);
-    transition: all 0.3s;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cat-item::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 0;
-    background: var(--wine-light);
-    transition: height 0.4s ease;
-    z-index: 0;
-  }
-
-  .cat-item:hover::before { height: 100%; }
-
-  .cat-item > * { position: relative; z-index: 1; }
-
-  .cat-emoji { font-size: 2.2rem; display: block; margin-bottom: 1rem; }
-
-  .cat-item h4 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--cream);
-    margin-bottom: 0.4rem;
-    letter-spacing: 0.05em;
-  }
-
-  .cat-item p {
-    font-size: 0.72rem;
-    color: rgba(245,240,232,0.5);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  /* ── MODAL CATÁLOGO ── */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 500;
-    background: rgba(42, 31, 26, 0.75);
-    backdrop-filter: blur(6px);
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-
-  .modal-overlay.open { display: flex; animation: fadeIn 0.3s ease; }
-
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-  .modal {
-    background: var(--cream);
-    width: 100%;
-    max-width: 1000px;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    animation: slideUp 0.35s ease;
-  }
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .modal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem 2.5rem;
-    border-bottom: 1px solid var(--border);
-    position: sticky; top: 0;
-    background: var(--cream);
-    z-index: 10;
-  }
-
-  .modal-header-left { display: flex; flex-direction: column; gap: 0.2rem; }
-
-  .modal-cat-tag {
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-
-  .modal-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: var(--charcoal);
-  }
-
-  .modal-close {
-    width: 40px; height: 40px;
-    border: 1px solid var(--border);
-    background: none;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem;
-    color: var(--text-mid);
-    transition: all 0.2s;
-    flex-shrink: 0;
-  }
-
-  .modal-close:hover {
-    background: var(--wine);
-    color: var(--cream);
-    border-color: var(--wine);
-  }
-
-  .modal-body { padding: 2rem 2.5rem; }
-
-  .modal-note {
-    font-size: 0.8rem;
-    color: var(--text-mid);
-    margin-bottom: 2rem;
-    padding: 0.75rem 1rem;
-    border-left: 2px solid var(--gold);
-    background: rgba(196,164,90,0.07);
-    font-style: italic;
-  }
-
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .product-card {
-    border: 1px solid var(--border);
-    background: white;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: box-shadow 0.3s, transform 0.3s;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .product-card:hover {
-    box-shadow: 0 8px 32px rgba(107,31,42,0.12);
-    transform: translateY(-4px);
-  }
-
-  .product-img {
-    width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: contain;
-    background: #faf8f4;
-    padding: 1rem;
-  }
-
-  .product-info {
-    padding: 1rem;
-    border-top: 1px solid var(--border);
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .product-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.95rem;
-    font-weight: 400;
-    color: var(--charcoal);
-    line-height: 1.3;
-  }
-
-  .product-price {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--wine);
-    margin-top: auto;
-    padding-top: 0.5rem;
-  }
-
-  .product-badge {
-    display: inline-block;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.5rem;
-    background: var(--wine);
-    color: var(--cream);
-    align-self: flex-start;
-  }
-
-  .modal-footer {
-    padding: 1.5rem 2.5rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--cream);
-  }
-
-  .modal-footer-text {
-    font-size: 0.8rem;
-    color: var(--text-mid);
-  }
-
-  .modal-cta {
-    padding: 0.75rem 2rem;
-    background: var(--wine);
-    color: var(--cream);
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-
-  .modal-cta:hover { background: var(--wine-light); }
-
-  /* ── PROCESO ── */
-  .proceso {
-    background: var(--cream-dark);
-  }
-
-  .proceso-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    margin-top: 5rem;
-    position: relative;
-  }
-
-  .proceso-steps::before {
-    content: '';
-    position: absolute;
-    top: 2.5rem; left: 12%;
-    right: 12%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--wine), transparent);
-    z-index: 0;
-  }
-
-  .step {
-    text-align: center;
-    padding: 0 2rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .step-circle {
-    width: 50px; height: 50px;
-    border-radius: 50%;
-    background: var(--wine);
-    color: var(--cream);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 300;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 2rem;
-    position: relative;
-  }
-
-  .step-circle::after {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-  }
-
-  .step h4 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: var(--charcoal);
-    margin-bottom: 0.75rem;
-  }
-
-  .step p {
-    font-size: 0.85rem;
-    line-height: 1.7;
-    color: var(--text-mid);
-    font-weight: 300;
-  }
-
-  /* ── FORM ── */
-  .contacto {
-    background: var(--cream);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    padding: 0;
-  }
-
-  .contacto-info {
-    background: var(--wine);
-    padding: 7rem 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .contacto-info::before {
-    content: '';
-    position: absolute;
-    top: -50%; right: -50%;
-    width: 100%; height: 100%;
-    background: radial-gradient(circle, rgba(196,164,90,0.15) 0%, transparent 60%);
-  }
-
-  .contacto-info .section-tag { color: var(--gold); }
-  .contacto-info .section-title { color: var(--cream); font-size: 2.5rem; }
-  .contacto-info .section-title em { color: var(--gold-light); }
-
-  .contacto-desc {
-    font-size: 0.95rem;
-    line-height: 1.8;
-    color: rgba(245,240,232,0.7);
-    font-weight: 300;
-    margin-bottom: 3rem;
-    max-width: 380px;
-  }
-
-  .contact-details {
-    display: flex; flex-direction: column; gap: 1.5rem;
-  }
-
-  .contact-item {
-    display: flex; align-items: center; gap: 1rem;
-  }
-
-  .contact-icon {
-    width: 40px; height: 40px;
-    border: 1px solid rgba(196,164,90,0.4);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem;
-    flex-shrink: 0;
-  }
-
-  .contact-item span {
-    font-size: 0.88rem;
-    color: rgba(245,240,232,0.8);
-    font-weight: 300;
-  }
-
-  .contacto-form {
-    padding: 7rem 5rem;
-    background: var(--cream);
-  }
-
-  .form-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: var(--charcoal);
-    margin-bottom: 2.5rem;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .form-group.full { grid-column: 1 / -1; }
-
-  .form-group label {
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--text-mid);
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 0.9rem 1rem;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--border);
-    color: var(--charcoal);
-    font-family: 'Jost', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 300;
-    outline: none;
-    transition: border-color 0.3s;
-    border-radius: 0;
-    -webkit-appearance: none;
-  }
-
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    border-bottom-color: var(--wine);
-  }
-
-  .form-group textarea {
-    resize: none;
-    height: 100px;
-  }
-
-  .form-check {
-    display: flex; align-items: flex-start; gap: 0.75rem;
-    margin-top: 0.5rem;
-    grid-column: 1 / -1;
-  }
-
-  .form-check input { width: auto; border-bottom: none; }
-
-  .form-check label {
-    font-size: 0.78rem;
-    color: var(--text-mid);
-    line-height: 1.5;
-    text-transform: none;
-    letter-spacing: 0;
-  }
-
-  .form-check a { color: var(--wine); text-decoration: none; }
-
-  .btn-submit {
-    margin-top: 2rem;
-    padding: 1.1rem 3rem;
-    background: var(--wine);
-    color: var(--cream);
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .btn-submit:hover {
-    background: var(--wine-light);
-    transform: translateY(-2px);
-  }
-
-  .btn-submit span { transition: transform 0.3s; }
-  .btn-submit:hover span { transform: translateX(4px); }
-
-  /* ── TESTIMONIOS ── */
-  .testimonios {
-    background: var(--cream-dark);
-  }
-
-  .test-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 4rem;
-  }
-
-  .test-card {
-    padding: 2.5rem;
-    background: var(--cream);
-    border: 1px solid var(--border);
-    position: relative;
-    transition: box-shadow 0.3s;
-  }
-
-  .test-card:hover {
-    box-shadow: 0 8px 40px rgba(107,31,42,0.1);
-  }
-
-  .test-quote {
-    position: absolute;
-    top: 1.5rem; left: 2rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 5rem;
-    font-weight: 300;
-    color: rgba(107,31,42,0.1);
-    line-height: 0.7;
-  }
-
-  .test-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-style: italic;
-    line-height: 1.7;
-    color: var(--text-warm);
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    font-weight: 300;
-  }
-
-  .test-author {
-    display: flex; align-items: center; gap: 1rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .test-avatar {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: var(--wine);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: var(--cream);
-    flex-shrink: 0;
-  }
-
-  .test-name {
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: var(--charcoal);
-  }
-
-  .test-role {
-    font-size: 0.72rem;
-    color: var(--text-mid);
-    letter-spacing: 0.05em;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--wine-deep);
-    padding: 4rem 6rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid rgba(196,164,90,0.2);
-  }
-
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--cream);
-    font-weight: 300;
-  }
-
-  .footer-logo span { color: var(--gold); }
-
-  .footer-text {
-    font-size: 0.75rem;
-    color: rgba(245,240,232,0.4);
-    letter-spacing: 0.1em;
-    text-align: center;
-  }
-
-  .footer-links {
-    display: flex; gap: 2rem;
-    list-style: none;
-  }
-
-  .footer-links a {
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(245,240,232,0.5);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .footer-links a:hover { color: var(--gold); }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeLeft {
-    from { opacity: 0; transform: translateX(30px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    nav { padding: 1.2rem 2rem; }
-    .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-left { padding: 5rem 2.5rem 3rem; }
-    .hero-right { min-height: 400px; }
-    section { padding: 4rem 2.5rem; }
-    .ventajas-grid { grid-template-columns: 1fr; }
-    .ventaja:nth-child(2n) { border-right: 1px solid var(--border); }
-    .cat-grid { grid-template-columns: repeat(2, 1fr); }
-    .proceso-steps { grid-template-columns: 1fr 1fr; }
-    .proceso-steps::before { display: none; }
-    .contacto { grid-template-columns: 1fr; }
-    .contacto-info { padding: 4rem 2.5rem; }
-    .contacto-form { padding: 4rem 2.5rem; }
-    .form-grid { grid-template-columns: 1fr; }
-    .test-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 2rem; text-align: center; }
-    .hero-stats { position: static; padding: 2rem; flex-direction: row; justify-content: center; }
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F6F1E8;--cream-dark:#EDE5D4;--cream-mid:#E8DFD0;
+  --wine:#6B1F2A;--wine-light:#8B3040;--wine-deep:#3D0D15;--wine-mid:#7A2535;
+  --gold:#C4A45A;--gold-light:#D4B870;--gold-pale:#EDD99A;
+  --charcoal:#1E1510;--text-warm:#4A3728;--text-mid:#7A6558;--text-light:#A89585;
+  --border:rgba(107,31,42,0.12);--border-gold:rgba(196,164,90,0.25);
+  --shadow:0 4px 32px rgba(30,21,16,0.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--charcoal);overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+.cursor{position:fixed;width:8px;height:8px;background:var(--wine);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid var(--wine);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .12s ease}
+.cursor.hover{width:16px;height:16px;background:var(--gold)}
+.cursor-ring.hover{width:48px;height:48px;border-color:var(--gold)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5rem;background:rgba(246,241,232,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:padding .3s}
+nav.scrolled{padding:1rem 5rem;box-shadow:0 2px 20px rgba(30,21,16,0.08)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;letter-spacing:.2em;color:var(--wine);text-decoration:none;text-transform:uppercase}
+.nav-logo span{color:var(--gold)}
+.nav-center{display:flex;gap:2.5rem;list-style:none}
+.nav-center a{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-warm);text-decoration:none;transition:color .3s;position:relative}
+.nav-center a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--wine);transition:width .3s}
+.nav-center a:hover{color:var(--wine)}
+.nav-center a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.cart-btn{position:relative;background:none;border:none;cursor:none;font-size:1.1rem;color:var(--text-warm);transition:color .3s}
+.cart-btn:hover{color:var(--wine)}
+.cart-count{position:absolute;top:-6px;right:-8px;width:16px;height:16px;background:var(--wine);color:var(--cream);font-size:.6rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:500}
+.nav-cta{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;padding:.6rem 1.6rem;background:var(--wine);color:var(--cream);text-decoration:none;transition:all .3s}
+.nav-cta:hover{background:var(--wine-light)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:none;padding:.3rem}
+.nav-toggle span{display:block;width:24px;height:1px;background:var(--charcoal);transition:all .3s}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-rows:1fr;position:relative;overflow:hidden;padding-top:80px}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--wine-deep) 0%,var(--wine) 40%,#8B2535 70%,#6B1F2A 100%);z-index:0}
+.hero-texture{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");z-index:1}
+.hero-content{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 80px)}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:6rem 4rem 6rem 5rem}
+.hero-eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;animation:fadeUp .9s .2s both}
+.hero-eyebrow-line{width:40px;height:1px;background:var(--gold)}
+.hero-eyebrow-text{font-size:.68rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold)}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,6vw,5.5rem);font-weight:300;line-height:1.05;color:var(--cream);margin-bottom:2rem;animation:fadeUp .9s .4s both}
+.hero-title em{font-style:italic;color:var(--gold-light);display:block}
+.hero-desc{font-size:.95rem;font-weight:300;line-height:1.8;color:rgba(246,241,232,.65);max-width:400px;margin-bottom:3rem;animation:fadeUp .9s .6s both}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .9s .8s both}
+.btn-wine{padding:1rem 2.8rem;background:var(--gold);color:var(--wine-deep);font-family:'Jost',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;border:none;cursor:none;text-decoration:none;display:inline-block;transition:all .3s}
+.btn-wine:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{padding:1rem 2.8rem;background:transparent;color:var(--cream);font-family:'Jost',sans-serif;font-size:.72rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;border:1px solid rgba(246,241,232,.3);cursor:none;text-decoration:none;display:inline-block;transition:all .3s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-right{display:flex;align-items:center;justify-content:center;position:relative;padding:4rem}
+.hero-visual-wrap{position:relative;animation:fadeUp 1s .5s both}
+.hero-big-bottle{width:160px;filter:drop-shadow(0 40px 80px rgba(0,0,0,.5))}
+.hero-bottle-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:400px;background:radial-gradient(ellipse,rgba(196,164,90,.15) 0%,transparent 70%);pointer-events:none}
+.hero-floating-cards{position:absolute;right:-20px;top:10%;display:flex;flex-direction:column;gap:1rem}
+.float-card{background:rgba(246,241,232,.08);backdrop-filter:blur(10px);border:1px solid rgba(196,164,90,.2);padding:.8rem 1.2rem;animation:floatCard 3s ease-in-out infinite}
+.float-card:nth-child(2){animation-delay:1s}
+.float-card:nth-child(3){animation-delay:2s}
+.float-card-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--gold);line-height:1}
+.float-card-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(246,241,232,.5)}
+.hero-scroll{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;animation:fadeUp 1s 1.2s both;z-index:3;text-decoration:none}
+.hero-scroll span{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(246,241,232,.4)}
+.scroll-line{width:1px;height:40px;background:linear-gradient(var(--gold),transparent);animation:scrollAnim 1.5s ease-in-out infinite}
+
+/* STATS BAR */
+.stats-bar{background:var(--wine-deep);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(196,164,90,.15)}
+.stat-item{padding:2rem;text-align:center;border-right:1px solid rgba(196,164,90,.1);transition:background .3s}
+.stat-item:last-child{border-right:none}
+.stat-item:hover{background:rgba(196,164,90,.05)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--gold);line-height:1}
+.stat-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,241,232,.4);margin-top:.3rem}
+
+/* SECTION COMMONS */
+.section-intro{margin-bottom:4rem}
+.s-tag{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem}
+.s-tag::before{content:'';width:28px;height:1px;background:var(--gold)}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.15;color:var(--charcoal)}
+.s-title em{font-style:italic;color:var(--wine)}
+.s-sub{font-size:.92rem;font-weight:300;line-height:1.8;color:var(--text-mid);max-width:500px;margin-top:1rem}
+
+/* FEATURED / HOME PRODUCTS */
+.featured{padding:7rem 5rem;background:var(--cream)}
+.featured-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem}
+.see-all{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--wine);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:gap .3s}
+.see-all:hover{gap:1rem}
+.products-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.product-card{border:1px solid var(--border);background:#fff;display:flex;flex-direction:column;overflow:hidden;transition:all .35s;cursor:none;position:relative}
+.product-card:hover{box-shadow:0 16px 48px rgba(107,31,42,.12);transform:translateY(-6px)}
+.product-card:hover .product-img-wrap img{transform:scale(1.05)}
+.product-img-wrap{aspect-ratio:3/4;overflow:hidden;background:#faf8f4;display:flex;align-items:center;justify-content:center;padding:1.5rem;position:relative}
+.product-img-wrap img{width:100%;height:100%;object-fit:contain;transition:transform .5s ease}
+.product-badge-wrap{position:absolute;top:1rem;left:1rem;display:flex;flex-direction:column;gap:.3rem}
+.badge{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;padding:.25rem .6rem;font-weight:500}
+.badge-wine{background:var(--wine);color:var(--cream)}
+.badge-gold{background:var(--gold);color:var(--wine-deep)}
+.badge-new{background:var(--charcoal);color:var(--cream)}
+.product-quick-add{position:absolute;bottom:0;left:0;right:0;background:var(--wine);color:var(--cream);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:.8rem;text-align:center;transform:translateY(100%);transition:transform .3s;cursor:none;border:none;font-family:'Jost',sans-serif}
+.product-card:hover .product-quick-add{transform:translateY(0)}
+.product-info{padding:1.25rem;border-top:1px solid var(--border);flex:1;display:flex;flex-direction:column}
+.product-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--charcoal);line-height:1.3;margin-bottom:.4rem}
+.product-region{font-size:.7rem;letter-spacing:.1em;color:var(--text-light);text-transform:uppercase;margin-bottom:auto}
+.product-footer{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--border)}
+.product-price{font-size:1rem;font-weight:500;color:var(--wine)}
+.product-price-pro{font-size:.72rem;color:var(--text-light);text-decoration:line-through}
+.add-to-cart-btn{width:32px;height:32px;background:var(--wine);color:var(--cream);border:none;cursor:none;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:background .3s}
+.add-to-cart-btn:hover{background:var(--wine-light)}
+
+/* CATEGORIES STRIP */
+.cat-strip{padding:5rem 5rem;background:var(--cream-dark)}
+.cat-scroll{display:grid;grid-template-columns:repeat(8,1fr);gap:1rem;margin-top:3rem}
+.cat-pill{display:flex;flex-direction:column;align-items:center;gap:.75rem;padding:1.5rem 1rem;border:1px solid var(--border);cursor:none;transition:all .3s;text-decoration:none;background:var(--cream)}
+.cat-pill:hover{background:var(--wine);border-color:var(--wine)}
+.cat-pill:hover .cat-pill-label{color:var(--cream)}
+.cat-pill:hover .cat-pill-emoji{transform:scale(1.2)}
+.cat-pill-emoji{font-size:1.6rem;transition:transform .3s}
+.cat-pill-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-warm);text-align:center;transition:color .3s}
+
+/* TIENDA / SHOP */
+.shop{padding:7rem 5rem;background:var(--cream)}
+.shop-layout{display:grid;grid-template-columns:240px 1fr;gap:3rem;margin-top:4rem}
+.shop-sidebar{}
+.sidebar-section{margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border)}
+.sidebar-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.sidebar-title{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--text-warm);margin-bottom:1.2rem;font-weight:500}
+.filter-option{display:flex;align-items:center;gap:.6rem;margin-bottom:.7rem;cursor:none}
+.filter-option input[type=checkbox]{accent-color:var(--wine);cursor:none;width:14px;height:14px}
+.filter-option label{font-size:.83rem;font-weight:300;color:var(--text-mid);cursor:none;transition:color .2s}
+.filter-option:hover label{color:var(--wine)}
+.price-range{margin-top:.5rem}
+.price-inputs{display:flex;gap:.5rem;align-items:center;margin-top:.8rem}
+.price-inputs input{width:70px;padding:.4rem .6rem;border:1px solid var(--border);background:transparent;font-family:'Jost',sans-serif;font-size:.8rem;color:var(--charcoal);outline:none}
+.price-inputs input:focus{border-color:var(--wine)}
+.price-inputs span{font-size:.75rem;color:var(--text-light)}
+.shop-main{}
+.shop-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.shop-count{font-size:.82rem;color:var(--text-mid);font-weight:300}
+.shop-sort select{padding:.5rem 1rem;border:1px solid var(--border);background:var(--cream);font-family:'Jost',sans-serif;font-size:.78rem;color:var(--text-warm);outline:none;cursor:none;-webkit-appearance:none;padding-right:2rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236B1F2A'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .7rem center}
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+
+/* PRODUCT MODAL */
+.product-modal-overlay{display:none;position:fixed;inset:0;z-index:600;background:rgba(30,21,16,.75);backdrop-filter:blur(8px)}
+.product-modal-overlay.open{display:flex;align-items:center;justify-content:center;padding:2rem;animation:fadeIn .3s ease}
+.product-modal{background:var(--cream);width:100%;max-width:900px;max-height:90vh;overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;animation:slideUp .35s ease}
+.pm-img-side{background:#faf8f4;display:flex;align-items:center;justify-content:center;padding:3rem;position:relative;min-height:400px}
+.pm-img-side img{max-width:100%;max-height:400px;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(30,21,16,.15))}
+.pm-close{position:absolute;top:1rem;right:1rem;width:36px;height:36px;background:none;border:1px solid var(--border);cursor:none;font-size:1rem;color:var(--text-mid);display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:10}
+.pm-close:hover{background:var(--wine);color:var(--cream);border-color:var(--wine)}
+.pm-info-side{padding:3rem;display:flex;flex-direction:column}
+.pm-badge{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;padding:.25rem .7rem;background:var(--wine);color:var(--cream);display:inline-block;align-self:flex-start;margin-bottom:1.2rem}
+.pm-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--charcoal);line-height:1.2;margin-bottom:.5rem}
+.pm-region{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-light);margin-bottom:2rem}
+.pm-price-row{display:flex;align-items:baseline;gap:1rem;margin-bottom:.5rem}
+.pm-price{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--wine)}
+.pm-price-pro-label{font-size:.7rem;color:var(--text-light);font-weight:300}
+.pm-divider{height:1px;background:var(--border);margin:1.5rem 0}
+.pm-details{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+.pm-detail{display:flex;flex-direction:column;gap:.2rem}
+.pm-detail-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-light)}
+.pm-detail-val{font-size:.88rem;color:var(--text-warm);font-weight:300}
+.pm-desc{font-size:.88rem;line-height:1.75;color:var(--text-mid);font-weight:300;margin-bottom:2rem;flex:1}
+.pm-qty-row{display:flex;gap:1rem;align-items:center;margin-bottom:1.5rem}
+.qty-control{display:flex;align-items:center;border:1px solid var(--border)}
+.qty-btn{width:36px;height:36px;background:none;border:none;cursor:none;font-size:1rem;color:var(--text-warm);transition:background .2s}
+.qty-btn:hover{background:var(--wine);color:var(--cream)}
+.qty-val{width:40px;text-align:center;font-size:.9rem;color:var(--charcoal)}
+.pm-add-btn{flex:1;padding:.9rem;background:var(--wine);color:var(--cream);font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;border:none;cursor:none;transition:background .3s}
+.pm-add-btn:hover{background:var(--wine-light)}
+
+/* CART DRAWER */
+.cart-overlay{display:none;position:fixed;inset:0;z-index:700;background:rgba(30,21,16,.6);backdrop-filter:blur(4px)}
+.cart-overlay.open{display:block;animation:fadeIn .3s}
+.cart-drawer{position:fixed;top:0;right:-440px;width:440px;height:100vh;background:var(--cream);z-index:800;display:flex;flex-direction:column;transition:right .4s cubic-bezier(.4,0,.2,1);box-shadow:-8px 0 40px rgba(30,21,16,.15)}
+.cart-drawer.open{right:0}
+.cart-drawer-header{padding:2rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.cart-drawer-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--charcoal)}
+.cart-drawer-close{width:36px;height:36px;background:none;border:1px solid var(--border);cursor:none;font-size:1rem;color:var(--text-mid);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.cart-drawer-close:hover{background:var(--wine);color:var(--cream);border-color:var(--wine)}
+.cart-items{flex:1;overflow-y:auto;padding:1.5rem 2rem}
+.cart-empty{text-align:center;padding:4rem 0;color:var(--text-light)}
+.cart-empty-icon{font-size:3rem;margin-bottom:1rem;display:block}
+.cart-empty-text{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300}
+.cart-item{display:grid;grid-template-columns:70px 1fr auto;gap:1rem;align-items:center;padding:1rem 0;border-bottom:1px solid var(--border)}
+.cart-item-img{width:70px;height:90px;object-fit:contain;background:#faf8f4;padding:.3rem}
+.cart-item-name{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--charcoal);line-height:1.3}
+.cart-item-region{font-size:.68rem;color:var(--text-light);letter-spacing:.1em;text-transform:uppercase;margin:.2rem 0}
+.cart-item-qty-row{display:flex;align-items:center;gap:.5rem;margin-top:.5rem}
+.cart-item-qty-btn{width:24px;height:24px;background:none;border:1px solid var(--border);cursor:none;font-size:.8rem;display:flex;align-items:center;justify-content:center;transition:all .2s;color:var(--text-mid)}
+.cart-item-qty-btn:hover{background:var(--wine);color:var(--cream);border-color:var(--wine)}
+.cart-item-qty{font-size:.82rem;width:24px;text-align:center}
+.cart-item-price{font-size:.95rem;font-weight:500;color:var(--wine);white-space:nowrap}
+.cart-item-remove{background:none;border:none;cursor:none;color:var(--text-light);font-size:.8rem;transition:color .2s;padding:.2rem}
+.cart-item-remove:hover{color:var(--wine)}
+.cart-footer{padding:1.5rem 2rem;border-top:1px solid var(--border)}
+.cart-subtotal{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.5rem}
+.cart-subtotal-label{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-mid)}
+.cart-subtotal-val{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--charcoal)}
+.cart-checkout-btn{width:100%;padding:1.1rem;background:var(--wine);color:var(--cream);font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;border:none;cursor:none;transition:background .3s;margin-bottom:.75rem}
+.cart-checkout-btn:hover{background:var(--wine-light)}
+.cart-continue{width:100%;padding:.9rem;background:transparent;color:var(--text-warm);font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--border);cursor:none;transition:all .3s}
+.cart-continue:hover{border-color:var(--wine);color:var(--wine)}
+.cart-note{font-size:.72rem;color:var(--text-light);text-align:center;margin-top:.75rem;font-weight:300}
+
+/* EDITORIAL STRIP */
+.editorial{background:var(--wine-deep);padding:6rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.editorial-text .s-tag{color:var(--gold)}
+.editorial-text .s-title{color:var(--cream)}
+.editorial-text .s-title em{color:var(--gold-light)}
+.editorial-text .s-sub{color:rgba(246,241,232,.6);max-width:420px}
+.editorial-cta{margin-top:2.5rem;display:flex;gap:1rem}
+.editorial-visual{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.ed-card{padding:2rem;border:1px solid rgba(196,164,90,.15);transition:border-color .3s}
+.ed-card:hover{border-color:rgba(196,164,90,.4)}
+.ed-card-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:.5rem}
+.ed-card-label{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(246,241,232,.4)}
+.ed-card-text{font-size:.83rem;line-height:1.6;color:rgba(246,241,232,.5);margin-top:.5rem;font-weight:300}
+
+/* MAPA */
+.mapa-section{padding:7rem 5rem;background:var(--cream-dark)}
+.mapa-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:4rem}
+.mapa-info{display:flex;flex-direction:column;gap:2rem}
+.mapa-detail{display:flex;gap:1.5rem;align-items:flex-start}
+.mapa-icon{width:44px;height:44px;border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;background:var(--cream)}
+.mapa-detail-content{}
+.mapa-detail-title{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.mapa-detail-text{font-size:.9rem;line-height:1.6;color:var(--text-warm);font-weight:300}
+.mapa-embed{position:relative;overflow:hidden;border:1px solid var(--border)}
+.mapa-embed iframe{width:100%;height:400px;border:none;filter:grayscale(20%) sepia(10%)}
+.mapa-embed-label{position:absolute;top:1rem;left:1rem;background:var(--wine);color:var(--cream);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;padding:.4rem .9rem;pointer-events:none}
+
+/* CONTACT */
+.contacto-section{padding:0;display:grid;grid-template-columns:1fr 1fr}
+.contacto-left{background:var(--wine);padding:7rem 5rem;position:relative;overflow:hidden}
+.contacto-left::before{content:'';position:absolute;top:-30%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(196,164,90,.12) 0%,transparent 65%);pointer-events:none}
+.contacto-left .s-tag{color:var(--gold)}
+.contacto-left .s-title{color:var(--cream)}
+.contacto-left .s-title em{color:var(--gold-light)}
+.c-details{display:flex;flex-direction:column;gap:1.5rem;margin-top:2.5rem}
+.c-item{display:flex;gap:1rem;align-items:flex-start}
+.c-icon{width:40px;height:40px;border:1px solid rgba(196,164,90,.35);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.c-item-text{font-size:.88rem;color:rgba(246,241,232,.75);font-weight:300;line-height:1.5}
+.c-item-text strong{display:block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:.2rem}
+.contacto-right{background:var(--cream);padding:7rem 5rem}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--charcoal);margin-bottom:2.5rem}
+#formSuccess{display:none;padding:2.5rem;border:1px solid var(--gold);background:rgba(196,164,90,.08);text-align:center}
+#formSuccess p:first-child{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--wine);margin-bottom:.5rem}
+#formSuccess p:last-child{font-size:.85rem;color:var(--text-mid);font-weight:300}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-light)}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.85rem 0;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--charcoal);font-family:'Jost',sans-serif;font-size:.9rem;font-weight:300;outline:none;transition:border-color .3s;-webkit-appearance:none;border-radius:0}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-bottom-color:var(--wine)}
+.form-group textarea{resize:none;height:90px}
+.form-check{display:flex;align-items:flex-start;gap:.75rem;grid-column:1/-1}
+.form-check input{width:auto;border-bottom:none;padding:0;margin-top:.15rem}
+.form-check label{font-size:.78rem;color:var(--text-mid);line-height:1.5;text-transform:none;letter-spacing:0}
+.form-check a{color:var(--wine);text-decoration:none}
+.btn-submit{margin-top:2rem;padding:1rem 2.8rem;background:var(--wine);color:var(--cream);font-family:'Jost',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;border:none;cursor:none;transition:all .3s;display:inline-flex;align-items:center;gap:.6rem}
+.btn-submit:hover{background:var(--wine-light);transform:translateY(-2px)}
+.btn-submit:disabled{opacity:.6}
+
+/* FOOTER */
+footer{background:var(--wine-deep);padding:4rem 5rem;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-top:1px solid rgba(196,164,90,.15)}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.25rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);font-weight:300}
+.footer-logo span{color:var(--gold)}
+.footer-copy{font-size:.7rem;color:rgba(246,241,232,.3);letter-spacing:.08em;text-align:center}
+.footer-links{display:flex;justify-content:flex-end;gap:2rem;list-style:none}
+.footer-links a{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(246,241,232,.4);text-decoration:none;transition:color .3s}
+.footer-links a:hover{color:var(--gold)}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--wine-deep);color:var(--cream);padding:1rem 2rem;font-size:.8rem;letter-spacing:.1em;z-index:900;transition:transform .4s cubic-bezier(.4,0,.2,1);border-left:3px solid var(--gold);white-space:nowrap;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* MOBILE MENU */
+.mobile-menu{display:none;position:fixed;inset:0;z-index:500;background:var(--wine-deep);flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;opacity:0;transition:opacity .3s}
+.mobile-menu.open{display:flex;opacity:1}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--cream);text-decoration:none;letter-spacing:.05em;transition:color .3s}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu-close{position:absolute;top:2rem;right:2rem;background:none;border:none;color:var(--cream);font-size:1.5rem;cursor:none}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes scrollAnim{0%{opacity:1;transform:scaleY(1);transform-origin:top}100%{opacity:0;transform:scaleY(0);transform-origin:bottom}}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav{padding:1.2rem 2.5rem}
+  .hero-content{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .products-row{grid-template-columns:repeat(2,1fr)}
+  .shop-layout{grid-template-columns:1fr}
+  .shop-sidebar{display:none}
+  .shop-grid{grid-template-columns:repeat(2,1fr)}
+  .editorial{grid-template-columns:1fr}
+  .mapa-layout{grid-template-columns:1fr}
+  .contacto-section{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr;text-align:center;gap:1.5rem}
+  .footer-links{justify-content:center}
+  .cat-scroll{grid-template-columns:repeat(4,1fr)}
+  .nav-center{display:none}
+  .nav-toggle{display:flex}
+  .product-modal{grid-template-columns:1fr}
+  .pm-img-side{min-height:250px}
+  .cart-drawer{width:100%;right:-100%}
+  section,
+  .featured,.shop,.cat-strip,.editorial,.mapa-section{padding-left:2rem;padding-right:2rem}
+  .contacto-left,.contacto-right{padding:4rem 2rem}
+  footer{padding:3rem 2rem}
+}
 </style>
 </head>
 <body>
 
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="toggleMenu()">✕</button>
+  <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+  <a href="#tienda" onclick="toggleMenu()">Tienda</a>
+  <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
+  <a href="#ubicacion" onclick="toggleMenu()">Ubicación</a>
+  <a href="#contacto" onclick="toggleMenu()">Contacto</a>
+  <a href="#profesionales" onclick="toggleMenu()" style="color:var(--gold)">Profesionales</a>
+</div>
+
 <!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Campoluz <span>·</span> Levante</a>
-  <ul class="nav-links">
-    <li><a href="#ventajas">Ventajas</a></li>
-    <li><a href="#categorias">Catálogo</a></li>
-    <li><a href="#proceso">Proceso</a></li>
+<nav id="navbar">
+  <a href="#inicio" class="nav-logo">Campoluz <span>·</span> Levante</a>
+  <ul class="nav-center">
+    <li><a href="#tienda">Tienda</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#ubicacion">Ubicación</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
-  <a href="#contacto" class="nav-cta">Solicitar cuenta</a>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="toggleCart()" title="Carrito">
+      🛒 <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <a href="#profesionales" class="nav-cta">Profesionales</a>
+    <button class="nav-toggle" onclick="toggleMenu()" id="navToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="inicio">
-  <div class="hero-left">
-    <p class="hero-tag">Área de profesionales</p>
-    <h1 class="hero-title">
-      Tu proveedor<br>de referencia en<br><em>vinos y destilados</em>
-    </h1>
-    <p class="hero-sub">
-      Más de 25 años distribuyendo las mejores referencias del mundo a restaurantes, hoteles, bares y empresas de toda la Comunitat Valenciana y España.
-    </p>
-    <div class="hero-actions">
-      <a href="#contacto" class="btn-primary">Abrir cuenta profesional</a>
-      <a href="#categorias" class="btn-ghost">Ver catálogo</a>
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Vinos & Destilados Premium · Paterna, Valencia</span>
+      </div>
+      <h1 class="hero-title">
+        El arte de<br>
+        <em>la buena mesa</em><br>
+        en cada botella
+      </h1>
+      <p class="hero-desc">
+        Más de 25 años seleccionando los mejores vinos, champagnes y destilados del mundo. Distribuidor de referencia para hostelería, restauración y particulares exigentes.
+      </p>
+      <div class="hero-actions">
+        <a href="#tienda" class="btn-wine">Explorar tienda</a>
+        <a href="#profesionales" class="btn-outline">Área profesional</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-visual-wrap">
+        <div class="hero-bottle-glow"></div>
+        <svg class="hero-big-bottle" viewBox="0 0 100 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="38" y="0" width="24" height="30" rx="4" fill="#2A0A10"/>
+          <path d="M30 40 Q20 80 18 130 L18 260 Q18 270 30 270 L70 270 Q82 270 82 260 L82 130 Q80 80 70 40 Z" fill="url(#bottleGrad)"/>
+          <rect x="35" y="28" width="30" height="14" rx="2" fill="#1A0608"/>
+          <rect x="28" y="150" width="44" height="50" rx="2" fill="rgba(255,255,255,0.07)"/>
+          <line x1="35" y1="158" x2="65" y2="158" stroke="rgba(196,164,90,0.5)" stroke-width="0.5"/>
+          <line x1="35" y1="163" x2="65" y2="163" stroke="rgba(196,164,90,0.5)" stroke-width="0.5"/>
+          <rect x="38" y="168" width="24" height="1" fill="rgba(196,164,90,0.3)"/>
+          <path d="M22 110 Q50 105 78 110" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+          <defs>
+            <linearGradient id="bottleGrad" x1="18" y1="0" x2="82" y2="270" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#3D0D15"/>
+              <stop offset="40%" stop-color="#6B1F2A"/>
+              <stop offset="100%" stop-color="#2A0A10"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="hero-floating-cards">
+        <div class="float-card">
+          <div class="float-card-num">+25</div>
+          <div class="float-card-label">Años</div>
+        </div>
+        <div class="float-card">
+          <div class="float-card-num">5K+</div>
+          <div class="float-card-label">Referencias</div>
+        </div>
+        <div class="float-card">
+          <div class="float-card-num">24h</div>
+          <div class="float-card-label">Entrega</div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="hero-right">
-    <div class="hero-visual"></div>
-    <div class="bottles-display">
-      <div class="bottle bottle-1">
-        <div class="bottle-shape"></div>
-        <span class="bottle-label">Vinos</span>
-      </div>
-      <div class="bottle bottle-2">
-        <div class="bottle-shape"></div>
-        <span class="bottle-label">Champagne</span>
-      </div>
-      <div class="bottle bottle-3">
-        <div class="bottle-shape"></div>
-        <span class="bottle-label">Whisky</span>
-      </div>
-      <div class="bottle bottle-4">
-        <div class="bottle-shape"></div>
-        <span class="bottle-label">Destilados</span>
-      </div>
-    </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">+25</div>
-        <div class="stat-label">Años de experiencia</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">+5.000</div>
-        <div class="stat-label">Referencias disponibles</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">24h</div>
-        <div class="stat-label">Entrega garantizada</div>
-      </div>
-    </div>
-  </div>
+  <a href="#tienda" class="hero-scroll">
+    <span>Descubrir</span>
+    <div class="scroll-line"></div>
+  </a>
 </section>
 
-<!-- VENTAJAS -->
-<section class="ventajas" id="ventajas">
-  <p class="section-tag reveal">Por qué elegirnos</p>
-  <h2 class="section-title reveal">Lo que nos hace <em>diferentes</em></h2>
-
-  <div class="ventajas-grid">
-    <div class="ventaja reveal">
-      <span class="ventaja-num">01</span>
-      <span class="ventaja-icon">🚚</span>
-      <h3>Logística propia</h3>
-      <p>Flota de vehículos propios con control de temperatura. Entregamos en toda la Comunitat Valenciana en 24 horas y en el resto de España en 48 horas.</p>
-    </div>
-    <div class="ventaja reveal">
-      <span class="ventaja-num">02</span>
-      <span class="ventaja-icon">🌡️</span>
-      <h3>Garantía de conservación</h3>
-      <p>Almacén climatizado con control permanente de temperatura y humedad para preservar la calidad de cada referencia, desde el almacén hasta su establecimiento.</p>
-    </div>
-    <div class="ventaja reveal">
-      <span class="ventaja-num">03</span>
-      <span class="ventaja-icon">📋</span>
-      <h3>Trazabilidad total</h3>
-      <p>Seguimiento completo de cada pedido en tiempo real. Acceda al historial de sus compras y gestione sus referencias desde su área de cliente.</p>
-    </div>
-    <div class="ventaja reveal">
-      <span class="ventaja-num">04</span>
-      <span class="ventaja-icon">🍷</span>
-      <h3>Asesoramiento experto</h3>
-      <p>Nuestro equipo de sumilleres le ayuda a diseñar su carta de vinos y coctelería, seleccionar referencias exclusivas y encontrar el producto ideal para cada ocasión.</p>
-    </div>
-    <div class="ventaja reveal">
-      <span class="ventaja-num">05</span>
-      <span class="ventaja-icon">💳</span>
-      <h3>Condiciones especiales</h3>
-      <p>Precios preferentes, descuentos por volumen, líneas de crédito y condiciones de pago adaptadas a las necesidades de cada establecimiento profesional.</p>
-    </div>
-    <div class="ventaja reveal">
-      <span class="ventaja-num">06</span>
-      <span class="ventaja-icon">📦</span>
-      <h3>Stock permanente</h3>
-      <p>Más de 5.000 referencias en stock disponibles de forma inmediata. Sin esperas ni roturas de stock en los productos de mayor rotación de su negocio.</p>
-    </div>
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item reveal">
+    <div class="stat-num">+5.000</div>
+    <div class="stat-label">Referencias en catálogo</div>
   </div>
-</section>
-
-<!-- CATEGORÍAS -->
-<section class="categorias" id="categorias">
-  <p class="section-tag reveal">Nuestro catálogo</p>
-  <h2 class="section-title reveal">Una selección <em>curada</em><br>para su negocio</h2>
-  <p style="color:rgba(245,240,232,0.5);font-size:0.82rem;margin-top:0.5rem;font-style:italic;" class="reveal">Haga clic en cada categoría para ver productos, precios y referencias</p>
-
-  <div class="cat-grid reveal">
-    <div class="cat-item" onclick="openModal('vinos')">
-      <span class="cat-emoji">🍷</span>
-      <h4>Vinos</h4>
-      <p>+2.000 referencias</p>
-    </div>
-    <div class="cat-item" onclick="openModal('champagne')">
-      <span class="cat-emoji">🍾</span>
-      <h4>Champagne & Cava</h4>
-      <p>Las mejores maisons</p>
-    </div>
-    <div class="cat-item" onclick="openModal('whisky')">
-      <span class="cat-emoji">🥃</span>
-      <h4>Whisky & Destilados</h4>
-      <p>Single malts & blends</p>
-    </div>
-    <div class="cat-item" onclick="openModal('cocteleria')">
-      <span class="cat-emoji">🍸</span>
-      <h4>Coctelería</h4>
-      <p>Siropes, purés & bitters</p>
-    </div>
-    <div class="cat-item" onclick="openModal('gourmet')">
-      <span class="cat-emoji">🫒</span>
-      <h4>Gourmet</h4>
-      <p>Conservas & delicatessen</p>
-    </div>
-    <div class="cat-item" onclick="openModal('gin')">
-      <span class="cat-emoji">🌿</span>
-      <h4>Gin & Vodka</h4>
-      <p>Premium & artesanales</p>
-    </div>
-    <div class="cat-item" onclick="openModal('grandes')">
-      <span class="cat-emoji">🥂</span>
-      <h4>Grandes formatos</h4>
-      <p>Magnums & jeroboams</p>
-    </div>
-    <div class="cat-item" onclick="openModal('regalos')">
-      <span class="cat-emoji">🎁</span>
-      <h4>Estuches & Regalos</h4>
-      <p>Para eventos corporativos</p>
-    </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">25</div>
+    <div class="stat-label">Años de experiencia</div>
   </div>
-</section>
-
-<!-- MODAL CATÁLOGO -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
-  <div class="modal" id="modal">
-    <div class="modal-header">
-      <div class="modal-header-left">
-        <span class="modal-cat-tag" id="modalTag">Categoría</span>
-        <h2 class="modal-title" id="modalTitle">Productos</h2>
-      </div>
-      <button class="modal-close" onclick="closeModal()">✕</button>
-    </div>
-    <div class="modal-body">
-      <p class="modal-note" id="modalNote"></p>
-      <div class="products-grid" id="productsGrid"></div>
-    </div>
-    <div class="modal-footer">
-      <p class="modal-footer-text">Precios profesionales disponibles al solicitar su cuenta. IVA no incluido.</p>
-      <a href="#contacto" class="modal-cta" onclick="closeModal()">Solicitar cuenta →</a>
-    </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">24h</div>
+    <div class="stat-label">Entrega garantizada</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">12</div>
+    <div class="stat-label">Países de origen</div>
   </div>
 </div>
 
-<!-- PROCESO -->
-<section class="proceso" id="proceso">
-  <p class="section-tag reveal">Cómo funciona</p>
-  <h2 class="section-title reveal">Empezar es <em>muy sencillo</em></h2>
+<!-- CATEGORÍAS STRIP -->
+<div class="cat-strip" id="categorias-home">
+  <div class="section-intro">
+    <p class="s-tag reveal">Explorar por categoría</p>
+    <h2 class="s-title reveal">¿Qué estás <em>buscando?</em></h2>
+  </div>
+  <div class="cat-scroll reveal">
+    <a class="cat-pill" href="#tienda" onclick="filterCat('vinos')">
+      <span class="cat-pill-emoji">🍷</span>
+      <span class="cat-pill-label">Vinos</span>
+    </a>
+    <a class="cat-pill" href="#tienda" onclick="filterCat('champagne')">
+      <span class="cat-pill-emoji">🍾</span>
+      <span class="cat-pill-label">Champagne</span>
+    </a>
+    <a class="cat-pill" href="#tienda" onclick="filterCat('whisky')">
+      <span class="cat-pill-emoji">🥃</span>
+      <span class="cat-pill-label">Whisky</span>
+    </a>
+    <a class="cat-pill" href="#tienda" onclick="filterCat('gin')">
+      <span class="cat-pill-emoji">🌿</span>
+      <span class="cat-pill-label">Gin</span>
+    </a>
+    <a class="cat-pill" href="#tienda" onclick="filterCat('cava')">
+      <span class="cat-pill-emoji">🥂</span>
+      <span class="cat-pill-label">Cava</span>
+    </a>
+    <a class="cat-pill" href="#tienda" onclick="filterCat('vodka')">
+      <span class="cat-pill-emoji">🫙</span>
+      <span class="cat-pill-label">Vodka</span>
+    </a>
+    <a class="cat-pill" href="#tienda" onclick="filterCat('cognac')">
+      <span class="cat-pill-emoji">✨</span>
+      <span class="cat-pill-label">Cognac</span>
+    </a>
+    <a class="cat-pill" href="#tienda" onclick="filterCat('regalos')">
+      <span class="cat-pill-emoji">🎁</span>
+      <span class="cat-pill-label">Regalos</span>
+    </a>
+  </div>
+</div>
 
-  <div class="proceso-steps">
-    <div class="step reveal">
-      <div class="step-circle">1</div>
-      <h4>Solicite su cuenta</h4>
-      <p>Rellene el formulario con los datos de su negocio. Le responderemos en menos de 24 horas.</p>
+<!-- DESTACADOS HOME -->
+<section class="featured" id="destacados">
+  <div class="featured-header">
+    <div>
+      <p class="s-tag reveal">Selección del mes</p>
+      <h2 class="s-title reveal">Los más <em>deseados</em></h2>
     </div>
-    <div class="step reveal">
-      <div class="step-circle">2</div>
-      <h4>Validamos su perfil</h4>
-      <p>Nuestro equipo revisa su solicitud y le asigna un asesor personal dedicado a su cuenta.</p>
-    </div>
-    <div class="step reveal">
-      <div class="step-circle">3</div>
-      <h4>Acceda al catálogo</h4>
-      <p>Desde su área privada podrá ver precios especiales, hacer pedidos y consultar disponibilidad en tiempo real.</p>
-    </div>
-    <div class="step reveal">
-      <div class="step-circle">4</div>
-      <h4>Reciba su pedido</h4>
-      <p>En 24–48 horas en su establecimiento, con seguimiento en tiempo real y garantía de conservación.</p>
+    <a href="#tienda" class="see-all reveal">Ver todo el catálogo →</a>
+  </div>
+  <div class="products-row" id="featuredGrid"></div>
+</section>
+
+<!-- TIENDA -->
+<section class="shop" id="tienda">
+  <div class="section-intro">
+    <p class="s-tag reveal">Catálogo completo</p>
+    <h2 class="s-title reveal">Nuestra <em>tienda</em></h2>
+    <p class="s-sub reveal">Selección de las mejores referencias disponibles con entrega en 24–48 horas.</p>
+  </div>
+  <div class="shop-layout">
+    <aside class="shop-sidebar reveal">
+      <div class="sidebar-section">
+        <p class="sidebar-title">Categoría</p>
+        <div class="filter-option"><input type="checkbox" id="f-vinos" onchange="applyFilters()"><label for="f-vinos">Vinos</label></div>
+        <div class="filter-option"><input type="checkbox" id="f-champagne" onchange="applyFilters()"><label for="f-champagne">Champagne & Cava</label></div>
+        <div class="filter-option"><input type="checkbox" id="f-whisky" onchange="applyFilters()"><label for="f-whisky">Whisky</label></div>
+        <div class="filter-option"><input type="checkbox" id="f-gin" onchange="applyFilters()"><label for="f-gin">Gin & Vodka</label></div>
+        <div class="filter-option"><input type="checkbox" id="f-cognac" onchange="applyFilters()"><label for="f-cognac">Cognac</label></div>
+        <div class="filter-option"><input type="checkbox" id="f-regalos" onchange="applyFilters()"><label for="f-regalos">Estuches & Regalos</label></div>
+      </div>
+      <div class="sidebar-section">
+        <p class="sidebar-title">Precio</p>
+        <div class="price-inputs">
+          <input type="number" id="priceMin" placeholder="0" min="0" onchange="applyFilters()">
+          <span>—</span>
+          <input type="number" id="priceMax" placeholder="500" min="0" onchange="applyFilters()">
+          <span style="font-size:.7rem;color:var(--text-light)">€</span>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <p class="sidebar-title">Etiquetas</p>
+        <div class="filter-option"><input type="checkbox" id="f-new" onchange="applyFilters()"><label for="f-new">Novedades</label></div>
+        <div class="filter-option"><input type="checkbox" id="f-premium" onchange="applyFilters()"><label for="f-premium">Premium</label></div>
+      </div>
+    </aside>
+    <div class="shop-main">
+      <div class="shop-toolbar">
+        <span class="shop-count" id="shopCount">Mostrando todos los productos</span>
+        <div class="shop-sort">
+          <select id="shopSort" onchange="applyFilters()">
+            <option value="default">Ordenar por defecto</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="name">Nombre A-Z</option>
+          </select>
+        </div>
+      </div>
+      <div class="shop-grid" id="shopGrid"></div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIOS -->
-<section class="testimonios">
-  <p class="section-tag reveal">Clientes que confían en nosotros</p>
-  <h2 class="section-title reveal">Lo que dicen nuestros <em>profesionales</em></h2>
+<!-- EDITORIAL -->
+<section class="editorial" id="nosotros">
+  <div class="editorial-text reveal">
+    <p class="s-tag">Quiénes somos</p>
+    <h2 class="s-title">Más de <em>25 años</em><br>eligiendo lo mejor</h2>
+    <p class="s-sub">Nacimos en Valencia con una idea simple: acercar los mejores vinos y destilados del mundo a los apasionados de la buena mesa. Hoy somos el distribuidor de referencia para cientos de restaurantes, hoteles y particulares de toda España.</p>
+    <div class="editorial-cta">
+      <a href="#contacto" class="btn-wine">Contactar</a>
+      <a href="#profesionales" class="btn-outline" style="color:var(--cream);border-color:rgba(246,241,232,.3)">Área profesional</a>
+    </div>
+  </div>
+  <div class="editorial-visual reveal">
+    <div class="ed-card">
+      <div class="ed-card-num">25+</div>
+      <div class="ed-card-label">Años de experiencia</div>
+      <div class="ed-card-text">Desde 1999 seleccionando las mejores referencias nacionales e internacionales</div>
+    </div>
+    <div class="ed-card">
+      <div class="ed-card-num">5K</div>
+      <div class="ed-card-label">Referencias</div>
+      <div class="ed-card-text">El catálogo más completo de la Comunitat Valenciana en vinos y destilados</div>
+    </div>
+    <div class="ed-card">
+      <div class="ed-card-num">24h</div>
+      <div class="ed-card-label">Entrega express</div>
+      <div class="ed-card-text">Logística propia con control de temperatura garantizado en cada envío</div>
+    </div>
+    <div class="ed-card">
+      <div class="ed-card-num">12</div>
+      <div class="ed-card-label">Países origen</div>
+      <div class="ed-card-text">Francia, Italia, España, Escocia, Alemania, EE.UU. y mucho más</div>
+    </div>
+  </div>
+</section>
 
-  <div class="test-grid">
-    <div class="test-card reveal">
-      <span class="test-quote">"</span>
-      <p class="test-text">Llevamos más de diez años trabajando con Campoluz y la relación es inmejorable. Siempre tienen stock, el servicio es impecable y el asesoramiento de su equipo nos ha ayudado a mejorar nuestra carta de vinos considerablemente.</p>
-      <div class="test-author">
-        <div class="test-avatar">MR</div>
-        <div>
-          <div class="test-name">Miguel R.</div>
-          <div class="test-role">Director F&B · Hotel 5★ Alicante</div>
+<!-- MAPA -->
+<section class="mapa-section" id="ubicacion">
+  <div class="section-intro">
+    <p class="s-tag reveal">Dónde estamos</p>
+    <h2 class="s-title reveal">Visítanos en <em>Paterna</em></h2>
+    <p class="s-sub reveal">Puedes visitarnos en nuestras instalaciones o realizar tu pedido online con entrega en 24-48 horas.</p>
+  </div>
+  <div class="mapa-layout">
+    <div class="mapa-info reveal">
+      <div class="mapa-detail">
+        <div class="mapa-icon">📍</div>
+        <div class="mapa-detail-content">
+          <p class="mapa-detail-title">Dirección</p>
+          <p class="mapa-detail-text">Calle del Comercio, 14 – Nave B<br>46980 Paterna, Valencia</p>
+        </div>
+      </div>
+      <div class="mapa-detail">
+        <div class="mapa-icon">📞</div>
+        <div class="mapa-detail-content">
+          <p class="mapa-detail-title">Teléfono</p>
+          <p class="mapa-detail-text">961 23 45 67<br><span style="font-size:.82rem;color:var(--text-light)">Móvil: 611 234 567</span></p>
+        </div>
+      </div>
+      <div class="mapa-detail">
+        <div class="mapa-icon">✉️</div>
+        <div class="mapa-detail-content">
+          <p class="mapa-detail-title">Email</p>
+          <p class="mapa-detail-text">info@campoluzlevante.com<br>profesionales@campoluzlevante.com</p>
+        </div>
+      </div>
+      <div class="mapa-detail">
+        <div class="mapa-icon">🕐</div>
+        <div class="mapa-detail-content">
+          <p class="mapa-detail-title">Horario</p>
+          <p class="mapa-detail-text">Lunes a viernes: 8:30 – 17:30 h<br>Sábados: 9:00 – 13:00 h</p>
+        </div>
+      </div>
+      <div class="mapa-detail">
+        <div class="mapa-icon">🚗</div>
+        <div class="mapa-detail-content">
+          <p class="mapa-detail-title">Cómo llegar</p>
+          <p class="mapa-detail-text">A 10 minutos del centro de Valencia.<br>Aparcamiento gratuito en la nave.</p>
         </div>
       </div>
     </div>
-    <div class="test-card reveal">
-      <span class="test-quote">"</span>
-      <p class="test-text">El catálogo de coctelería es excepcional. Encontramos referencias que no están en ningún otro distribuidor de la zona, y los precios para profesionales son muy competitivos. Un socio indispensable para nuestro bar.</p>
-      <div class="test-author">
-        <div class="test-avatar">LP</div>
-        <div>
-          <div class="test-name">Laura P.</div>
-          <div class="test-role">Bar Manager · Cocktail Bar Murcia</div>
-        </div>
-      </div>
-    </div>
-    <div class="test-card reveal">
-      <span class="test-quote">"</span>
-      <p class="test-text">Para nuestros eventos corporativos, Campoluz siempre nos ofrece los mejores champagnes y estuches de regalo. Rapidez, elegancia en el packaging y la confianza de saber que la calidad está garantizada.</p>
-      <div class="test-author">
-        <div class="test-avatar">AC</div>
-        <div>
-          <div class="test-name">Ana C.</div>
-          <div class="test-role">Responsable Eventos · Empresa Tecnológica Valencia</div>
-        </div>
-      </div>
+    <div class="mapa-embed reveal">
+      <span class="mapa-embed-label">Campoluz Levante · Paterna</span>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3078.5!2d-0.4407!3d39.5031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDMwJzExLjEiTiAwwrAyNiczMC41Ilc!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses&q=Paterna+Valencia+Spain"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
   </div>
 </section>
 
 <!-- CONTACTO -->
-<div class="contacto" id="contacto">
-  <div class="contacto-info">
-    <p class="section-tag">Contacto profesional</p>
-    <h2 class="section-title">Hablemos de<br><em>su negocio</em></h2>
-    <p class="contacto-desc">
-      Rellene el formulario y uno de nuestros asesores se pondrá en contacto con usted para conocer sus necesidades y ofrecerle las mejores condiciones.
-    </p>
-    <div class="contact-details">
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <span>Calle del Comercio, 14 – Nave B<br>46980 Paterna, Valencia</span>
+<div class="contacto-section" id="contacto">
+  <div class="contacto-left">
+    <p class="s-tag">Contacto</p>
+    <h2 class="s-title">Hablemos de<br><em>su negocio</em></h2>
+    <div class="c-details">
+      <div class="c-item">
+        <div class="c-icon">📍</div>
+        <div class="c-item-text"><strong>Dirección</strong>C/ del Comercio, 14 – Nave B<br>46980 Paterna, Valencia</div>
       </div>
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
-        <span>961 23 45 67<br><span style="font-size:0.78rem;opacity:0.6;">Móvil: 611 234 567</span></span>
+      <div class="c-item">
+        <div class="c-icon">📞</div>
+        <div class="c-item-text"><strong>Teléfono</strong>961 23 45 67 · Móvil: 611 234 567</div>
       </div>
-      <div class="contact-item">
-        <div class="contact-icon">✉️</div>
-        <span>profesionales@campoluzlevante.com<br><span style="font-size:0.78rem;opacity:0.6;">info@campoluzlevante.com</span></span>
+      <div class="c-item">
+        <div class="c-icon">✉️</div>
+        <div class="c-item-text"><strong>Email</strong>info@campoluzlevante.com</div>
       </div>
-      <div class="contact-item">
-        <div class="contact-icon">🕐</div>
-        <span>Lunes a viernes<br>8:30 – 17:30 h</span>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">🌐</div>
-        <span>campoluzlevante.com</span>
+      <div class="c-item">
+        <div class="c-icon">🕐</div>
+        <div class="c-item-text"><strong>Horario</strong>Lun–Vie: 8:30–17:30 h · Sáb: 9:00–13:00 h</div>
       </div>
     </div>
   </div>
-
-  <div class="contacto-form">
-    <p class="form-title">Solicite su cuenta profesional</p>
-
-    <!-- ✅ MENSAJE DE ÉXITO (oculto por defecto) -->
-    <div id="formSuccess" style="display:none; padding: 2.5rem; border: 1px solid var(--gold); background: rgba(196,164,90,0.08); text-align:center;">
-      <p style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:var(--wine); margin-bottom:0.5rem;">¡Solicitud enviada!</p>
-      <p style="font-size:0.88rem; color:var(--text-mid); font-weight:300;">Nos pondremos en contacto con usted en menos de 24 horas. Gracias por su interés.</p>
+  <div class="contacto-right" id="profesionales">
+    <p class="form-title">Solicitar información</p>
+    <div id="formSuccess">
+      <p>¡Mensaje enviado!</p>
+      <p>Nos pondremos en contacto en menos de 24 horas.</p>
     </div>
-
-    <!-- FORMULARIO → Formspree -->
-    <!-- 👉 Sustituye TU_ID_AQUI por tu ID de Formspree (ej: xbjnkpvz) -->
     <form id="contactForm" action="https://formspree.io/f/xdkqvgvl" method="POST">
-
-      <!-- Campo anti-spam honeypot (Formspree lo ignora si está vacío) -->
       <input type="text" name="_gotcha" style="display:none">
-      <!-- Asunto del email que recibirás -->
-      <input type="hidden" name="_subject" value="Nueva solicitud de cuenta profesional – Campoluz Levante">
-
+      <input type="hidden" name="_subject" value="Nuevo contacto – Campoluz Levante">
       <div class="form-grid">
         <div class="form-group">
-          <label>Nombre y apellidos</label>
+          <label>Nombre</label>
           <input type="text" name="nombre" placeholder="Nombre completo" required>
         </div>
         <div class="form-group">
-          <label>Empresa / Establecimiento</label>
-          <input type="text" name="empresa" placeholder="Nombre del negocio" required>
+          <label>Empresa</label>
+          <input type="text" name="empresa" placeholder="Nombre del negocio">
         </div>
         <div class="form-group">
           <label>Email</label>
@@ -1385,38 +701,31 @@
         </div>
         <div class="form-group">
           <label>Tipo de negocio</label>
-          <select name="tipo_negocio" required>
-            <option value="" disabled selected>Seleccione una opción</option>
-            <option>Restaurante</option>
-            <option>Hotel</option>
-            <option>Bar / Cocktail bar</option>
-            <option>Empresa (eventos corporativos)</option>
-            <option>Catering</option>
-            <option>Otro</option>
+          <select name="tipo_negocio">
+            <option value="" disabled selected>Seleccione</option>
+            <option>Restaurante</option><option>Hotel</option>
+            <option>Bar / Cocktail bar</option><option>Empresa / Eventos</option>
+            <option>Particular</option><option>Otro</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Volumen mensual aproximado</label>
-          <select name="volumen_mensual">
-            <option value="" disabled selected>Seleccione una opción</option>
-            <option>Menos de 500 €</option>
-            <option>500 € – 2.000 €</option>
-            <option>2.000 € – 5.000 €</option>
-            <option>Más de 5.000 €</option>
+          <label>Volumen mensual</label>
+          <select name="volumen">
+            <option value="" disabled selected>Seleccione</option>
+            <option>Menos de 500 €</option><option>500 – 2.000 €</option>
+            <option>2.000 – 5.000 €</option><option>Más de 5.000 €</option>
           </select>
         </div>
         <div class="form-group full">
-          <label>¿En qué podemos ayudarle?</label>
-          <textarea name="mensaje" placeholder="Cuéntenos brevemente qué necesita…"></textarea>
+          <label>Mensaje</label>
+          <textarea name="mensaje" placeholder="¿En qué podemos ayudarle?"></textarea>
         </div>
         <div class="form-check">
           <input type="checkbox" id="privacy" required>
-          <label for="privacy">He leído y acepto la <a href="#">política de privacidad</a> y los <a href="#">términos y condiciones</a> de Campoluz Levante.</label>
+          <label for="privacy">Acepto la <a href="#">política de privacidad</a> y los <a href="#">términos y condiciones</a>.</label>
         </div>
       </div>
-      <button type="submit" class="btn-submit" id="submitBtn">
-        Enviar solicitud <span>→</span>
-      </button>
+      <button type="submit" class="btn-submit" id="submitBtn">Enviar mensaje <span>→</span></button>
     </form>
   </div>
 </div>
@@ -1424,7 +733,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Campoluz <span>·</span> Levante</div>
-  <p class="footer-text">© 2025 Campoluz Levante S.L. · C/ del Comercio, 14 – Nave B, 46980 Paterna (Valencia) · Prohibida la venta de alcohol a menores de 18 años</p>
+  <p class="footer-copy">© 2025 Campoluz Levante S.L. · Paterna, Valencia · Prohibida la venta a menores de 18 años</p>
   <ul class="footer-links">
     <li><a href="#">Privacidad</a></li>
     <li><a href="#">Legal</a></li>
@@ -1432,204 +741,302 @@
   </ul>
 </footer>
 
-<script>
-  // ── FORMSPREE SUBMIT ──
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submitBtn');
-      btn.textContent = 'Enviando…';
-      btn.disabled = true;
-
-      try {
-        const res = await fetch(contactForm.action, {
-          method: 'POST',
-          body: new FormData(contactForm),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (res.ok) {
-          contactForm.style.display = 'none';
-          document.getElementById('formSuccess').style.display = 'block';
-        } else {
-          btn.textContent = 'Error al enviar. Inténtelo de nuevo.';
-          btn.disabled = false;
-        }
-      } catch {
-        btn.textContent = 'Error de conexión. Inténtelo de nuevo.';
-        btn.disabled = false;
-      }
-    });
-  }
-
-  // ── CATÁLOGO DE PRODUCTOS REALES ──
-  const BASE = 'https://www.campoluzenoteca.com';
-
-  const catalog = {
-    vinos: {
-      tag: 'Vinos',
-      title: 'Vinos',
-      note: 'Selección de vinos tintos, blancos y rosados de las mejores denominaciones de España y del mundo.',
-      products: [
-        { name: 'Numanthia 2020', price: '50,90 €', img: BASE+'/16892-medium_default/numanthia-2020.jpg', url: BASE+'/numanthia-2020-1843.html', badge: 'Tinto' },
-        { name: 'Lopez de Haro Crianza 2022', price: '8,15 €', img: BASE+'/9403-medium_default/lopez-de-haro-crianza-2022.jpg', url: BASE+'/lopez-de-haro-crianza-2022-5661.html', badge: 'Tinto' },
-        { name: 'Finca Las Caraballas 2024', price: '12,25 €', img: BASE+'/18820-medium_default/finca-las-caraballas-2024.jpg', url: BASE+'/finca-las-caraballas-2024-1574.html', badge: 'Blanco' },
-        { name: 'Jose Pariente Verdejo 2025', price: '10,95 €', img: BASE+'/4690-medium_default/jose-pariente-verdejo-2025.jpg', url: BASE+'/jose-pariente-verdejo-2025-1862.html', badge: 'Blanco' },
-        { name: 'Nik Weis Bockstein Kabinett 2023', price: '25,30 €', img: BASE+'/7590-medium_default/nik-weis-bockstein-kabinett-2023.jpg', url: BASE+'/nik-weis-bockstein-kabinett-2023-1702.html', badge: 'Riesling' },
-        { name: 'Pago de Tharsys Dulce', price: '17,30 €', img: BASE+'/822-medium_default/pago-de-tharsys-dulce.jpg', url: BASE+'/pago-de-tharsys-dulce-1198.html', badge: 'Dulce' },
-        { name: 'Albariño Marieta 2025', price: '10,04 €', img: BASE+'/4692-medium_default/albarino-marieta-2025.jpg', url: BASE+'/albarino-marieta-2025-1407.html', badge: 'Blanco' },
-        { name: 'Follador Cuvée Rosé', price: '11,90 €', img: BASE+'/155-medium_default/follador-cuvee-rose.jpg', url: BASE+'/follador-cuvee-rose-1255.html', badge: 'Rosado' },
-      ]
-    },
-    champagne: {
-      tag: 'Espumosos',
-      title: 'Champagne & Cava',
-      note: 'Las grandes maisons francesas y los mejores cavas españoles. Ideales para celebraciones y eventos.',
-      products: [
-        { name: 'Dom Pérignon Vintage 2015', price: '237,00 €', img: BASE+'/14558-medium_default/dom-perignon-vintage-2015.jpg', url: BASE+'/dom-perignon-vintage-2015-10673.html', badge: 'Premium' },
-        { name: 'Veuve Clicquot Brut Arrow Madrid', price: '64,90 €', img: BASE+'/16882-medium_default/veuve-clicquot-brut-estuchado-arrow-madrid.jpg', url: BASE+'/veuve-clicquot-brut-estuchado-arrow-madrid-10876.html', badge: 'Edición' },
-        { name: 'Laurent-Perrier Cuvée Rosé Brut', price: '97,50 €', img: BASE+'/17907-medium_default/laurent-perrier-cuvee-rose-brut.jpg', url: BASE+'/laurent-perrier-cuvee-rose-brut-1339.html', badge: 'Rosé' },
-        { name: 'Laurent-Perrier Cuvée Rose Ribbons', price: '129,20 €', img: BASE+'/16501-medium_default/laurent-perrier-cuvee-rose-ribbons.jpg', url: BASE+'/laurent-perrier-cuvee-rose-ribbons-11325.html', badge: 'Edición' },
-        { name: 'Ruinart Blanc de Blancs', price: '91,90 €', img: BASE+'/5686-medium_default/ruinart-blanc-de-blancs.jpg', url: BASE+'/ruinart-blanc-de-blancs-1371.html', badge: 'Champagne' },
-        { name: 'Moët & Chandon Imperial Rosé EOY', price: '57,50 €', img: BASE+'/16819-medium_default/moet-chandon-imperial-rose-estuchado-eoy-pink-limited-edition.jpg', url: BASE+'/moet-chandon-imperial-rose-estuchado-eoy-pink-limited-edition-11439.html', badge: 'Edición' },
-        { name: 'Grandin Grande Reserve Brut', price: '17,50 €', img: BASE+'/4898-medium_default/grandin-grande-reserve-brut.jpg', url: BASE+'/grandin-grande-reserve-brut-1259.html', badge: 'Espumoso' },
-        { name: 'Follador Valdobbiadene Prosecco', price: '14,69 €', img: BASE+'/156-medium_default/follador-valdobbiadene-prosecco-superiore.jpg', url: BASE+'/follador-valdobbiadene-prosecco-superiore-1254.html', badge: 'Prosecco' },
-      ]
-    },
-    whisky: {
-      tag: 'Destilados',
-      title: 'Whisky & Destilados',
-      note: 'Single malts escoceses, blends americanos, cognac y todos los grandes destilados del mundo.',
-      products: [
-        { name: 'Johnnie Walker Blue Ice Chalet', price: '495,00 €', img: BASE+'/15252-medium_default/johnnie-walker-blue-ice-chalet.jpg', url: BASE+'/johnnie-walker-blue-ice-chalet-10881.html', badge: 'Premium' },
-        { name: 'The Macallan 12 Years Double Cask', price: '74,90 €', img: BASE+'/17101-medium_default/the-macallan-12-years-double-cask.jpg', url: BASE+'/the-macallan-12-years-double-cask-5434.html', badge: 'Scotch' },
-        { name: 'The Macallan Classic Cut 2023', price: '169,00 €', img: BASE+'/15226-medium_default/the-macallan-classic-cut-limited-edition-2023.jpg', url: BASE+'/the-macallan-classic-cut-limited-edition-2023-10872.html', badge: 'Edición' },
-        { name: 'Hennessy X.O. Horse Year Xu Zhen', price: '279,50 €', img: BASE+'/17484-medium_default/hennessy-xo-estuchado-horse-year-x-xu-zhen.jpg', url: BASE+'/hennessy-xo-estuchado-horse-year-x-xu-zhen-11601.html', badge: 'Cognac' },
-        { name: 'Vodka Belvedere Pure B10 Luminoso', price: '224,15 €', img: BASE+'/13704-medium_default/vodka-belvedere-pure-b10-luminoso.jpg', url: BASE+'/vodka-belvedere-pure-b10-luminoso-10333.html', badge: 'Vodka' },
-        { name: 'Manzanilla La Guita', price: '7,35 €', img: BASE+'/805-medium_default/manzanilla-la-guita.jpg', url: BASE+'/manzanilla-la-guita-1410.html', badge: 'Jerez' },
-      ]
-    },
-    cocteleria: {
-      tag: 'Coctelería',
-      title: 'Coctelería Profesional',
-      note: 'Siropes, purés de frutas, bitters y licores para profesionales de la coctelería. Marcas líderes del sector.',
-      products: [
-        { name: 'Ginebra Gin Mare Capri 1L', price: '39,50 €', img: BASE+'/11483-medium_default/ginebra-gin-mare-capri.jpg', url: BASE+'/ginebra-gin-mare-capri-6995.html', badge: 'Gin' },
-        { name: 'Le Tribute Gin', price: '39,45 €', img: BASE+'/11678-medium_default/le-tribute-gin.jpg', url: BASE+'/le-tribute-gin-5366.html', badge: 'Gin' },
-        { name: 'Vino Follador Prosecco', price: '11,90 €', img: BASE+'/14165-medium_default/vino-follador-prosecco.jpg', url: BASE+'/vino-follador-prosecco-1256.html', badge: 'Espumoso' },
-        { name: 'Premiere Bulle Premium Van Binh', price: '21,65 €', img: BASE+'/7725-medium_default/premiere-bulle-premium-van-binh.jpg', url: BASE+'/premiere-bulle-premium-van-binh-1203.html', badge: 'Espumoso' },
-        { name: 'Grandin Grande Reserve Brut Rosé', price: '17,50 €', img: BASE+'/702-medium_default/grandin-grande-reserve-brut-rose.jpg', url: BASE+'/grandin-grande-reserve-brut-rose-1260.html', badge: 'Rosé' },
-        { name: 'Premiere Bulle Rosé', price: '16,52 €', img: BASE+'/7724-medium_default/premiere-bulle-rose.jpg', url: BASE+'/premiere-bulle-rose-1204.html', badge: 'Rosé' },
-      ]
-    },
-    gourmet: {
-      tag: 'Gourmet',
-      title: 'Productos Gourmet',
-      note: 'Conservas, embutidos, aceites y delicatessen de alta calidad para completar la oferta de su establecimiento.',
-      products: [
-        { name: 'Belondrade y Lurton 2023', price: '44,55 €', img: BASE+'/13854-medium_default/belondrade-y-lurton-2023.jpg', url: BASE+'/belondrade-y-lurton-2023-10396.html', badge: 'Vino' },
-        { name: 'Ce de Caraballas 2023', price: '23,50 €', img: BASE+'/16247-medium_default/ce-de-caraballas-2023.jpg', url: BASE+'/ce-de-caraballas-2023-11229.html', badge: 'Blanco' },
-        { name: 'Finca Rodma Selección 2023', price: '25,95 €', img: BASE+'/10264-medium_default/finca-rodma-seleccion-2023.jpg', url: BASE+'/finca-rodma-seleccion-2023-8986.html', badge: 'Tinto' },
-        { name: 'Pietrabianca Tormaresca 2022', price: '25,15 €', img: BASE+'/12966-medium_default/pietrabianca-tormaresca-2022.jpg', url: BASE+'/pietrabianca-tormaresca-2022-10072.html', badge: 'Italiano' },
-        { name: 'Mar de Frades Albariño 2024', price: '18,50 €', img: BASE+'/16522-medium_default/mar-de-frades-albarino-con-funda-2024.jpg', url: BASE+'/mar-de-frades-albarino-con-funda-2024-11332.html', badge: 'Albariño' },
-        { name: 'Manzanilla La Guita', price: '7,35 €', img: BASE+'/805-medium_default/manzanilla-la-guita.jpg', url: BASE+'/manzanilla-la-guita-1410.html', badge: 'Jerez' },
-      ]
-    },
-    gin: {
-      tag: 'Gin & Vodka',
-      title: 'Gin & Vodka Premium',
-      note: 'Ginebras artesanales y vodkas de primera categoría para la mejor coctelería.',
-      products: [
-        { name: 'Ginebra Gin Mare Capri 1L', price: '39,50 €', img: BASE+'/11483-medium_default/ginebra-gin-mare-capri.jpg', url: BASE+'/ginebra-gin-mare-capri-6995.html', badge: 'Mediterránea' },
-        { name: 'Le Tribute Gin', price: '39,45 €', img: BASE+'/11678-medium_default/le-tribute-gin.jpg', url: BASE+'/le-tribute-gin-5366.html', badge: 'Artesanal' },
-        { name: 'Vodka Belvedere Pure B10 Luminoso', price: '224,15 €', img: BASE+'/13704-medium_default/vodka-belvedere-pure-b10-luminoso.jpg', url: BASE+'/vodka-belvedere-pure-b10-luminoso-10333.html', badge: 'Premium' },
-        { name: 'Hennessy X.O. Horse Year', price: '279,50 €', img: BASE+'/17484-medium_default/hennessy-xo-estuchado-horse-year-x-xu-zhen.jpg', url: BASE+'/hennessy-xo-estuchado-horse-year-x-xu-zhen-11601.html', badge: 'Cognac' },
-        { name: 'The Macallan 12 Double Cask', price: '74,90 €', img: BASE+'/17101-medium_default/the-macallan-12-years-double-cask.jpg', url: BASE+'/the-macallan-12-years-double-cask-5434.html', badge: 'Whisky' },
-        { name: 'Johnnie Walker Blue Ice Chalet', price: '495,00 €', img: BASE+'/15252-medium_default/johnnie-walker-blue-ice-chalet.jpg', url: BASE+'/johnnie-walker-blue-ice-chalet-10881.html', badge: 'Edición' },
-      ]
-    },
-    grandes: {
-      tag: 'Grandes Formatos',
-      title: 'Grandes Formatos',
-      note: 'Magnums, Jeroboams y formatos especiales para eventos, celebraciones y establecimientos de lujo.',
-      products: [
-        { name: 'Dom Pérignon Vintage 2015', price: '237,00 €', img: BASE+'/14558-medium_default/dom-perignon-vintage-2015.jpg', url: BASE+'/dom-perignon-vintage-2015-10673.html', badge: 'Champagne' },
-        { name: 'Laurent-Perrier Cuvée Rosé Ribbons', price: '129,20 €', img: BASE+'/16501-medium_default/laurent-perrier-cuvee-rose-ribbons.jpg', url: BASE+'/laurent-perrier-cuvee-rose-ribbons-11325.html', badge: 'Edición' },
-        { name: 'Johnnie Walker Blue Ice Chalet', price: '495,00 €', img: BASE+'/15252-medium_default/johnnie-walker-blue-ice-chalet.jpg', url: BASE+'/johnnie-walker-blue-ice-chalet-10881.html', badge: 'Whisky' },
-        { name: 'Vodka Belvedere Pure B10 Luminoso', price: '224,15 €', img: BASE+'/13704-medium_default/vodka-belvedere-pure-b10-luminoso.jpg', url: BASE+'/vodka-belvedere-pure-b10-luminoso-10333.html', badge: 'Luminoso' },
-        { name: 'Veuve Clicquot Arrow Madrid', price: '64,90 €', img: BASE+'/16882-medium_default/veuve-clicquot-brut-estuchado-arrow-madrid.jpg', url: BASE+'/veuve-clicquot-brut-estuchado-arrow-madrid-10876.html', badge: 'Champagne' },
-        { name: 'Ruinart Blanc de Blancs', price: '91,90 €', img: BASE+'/5686-medium_default/ruinart-blanc-de-blancs.jpg', url: BASE+'/ruinart-blanc-de-blancs-1371.html', badge: 'Champagne' },
-      ]
-    },
-    regalos: {
-      tag: 'Estuches & Regalos',
-      title: 'Estuches & Regalos',
-      note: 'Presentaciones exclusivas para regalos corporativos, eventos de empresa y obsequios de alto standing.',
-      products: [
-        { name: 'Moët & Chandon Imperial Rosé EOY', price: '57,50 €', img: BASE+'/16819-medium_default/moet-chandon-imperial-rose-estuchado-eoy-pink-limited-edition.jpg', url: BASE+'/moet-chandon-imperial-rose-estuchado-eoy-pink-limited-edition-11439.html', badge: 'Estuchado' },
-        { name: 'Veuve Clicquot Arrow Madrid', price: '64,90 €', img: BASE+'/16882-medium_default/veuve-clicquot-brut-estuchado-arrow-madrid.jpg', url: BASE+'/veuve-clicquot-brut-estuchado-arrow-madrid-10876.html', badge: 'Estuchado' },
-        { name: 'Laurent-Perrier Cuvée Rose Ribbons', price: '129,20 €', img: BASE+'/16501-medium_default/laurent-perrier-cuvee-rose-ribbons.jpg', url: BASE+'/laurent-perrier-cuvee-rose-ribbons-11325.html', badge: 'Edición' },
-        { name: 'Hennessy X.O. Horse Year Xu Zhen', price: '279,50 €', img: BASE+'/17484-medium_default/hennessy-xo-estuchado-horse-year-x-xu-zhen.jpg', url: BASE+'/hennessy-xo-estuchado-horse-year-x-xu-zhen-11601.html', badge: 'Estuchado' },
-        { name: 'Johnnie Walker Blue Ice Chalet', price: '495,00 €', img: BASE+'/15252-medium_default/johnnie-walker-blue-ice-chalet.jpg', url: BASE+'/johnnie-walker-blue-ice-chalet-10881.html', badge: 'Estuchado' },
-        { name: 'Mar de Frades Albariño con Funda', price: '18,50 €', img: BASE+'/16522-medium_default/mar-de-frades-albarino-con-funda-2024.jpg', url: BASE+'/mar-de-frades-albarino-con-funda-2024-11332.html', badge: 'Funda' },
-      ]
-    }
-  };
-
-  function openModal(key) {
-    const data = catalog[key];
-    if (!data) return;
-
-    document.getElementById('modalTag').textContent = data.tag;
-    document.getElementById('modalTitle').textContent = data.title;
-    document.getElementById('modalNote').textContent = data.note;
-
-    const grid = document.getElementById('productsGrid');
-    grid.innerHTML = data.products.map(p => `
-      <a class="product-card" href="${p.url}" target="_blank" rel="noopener">
-        <img class="product-img" src="${p.img}" alt="${p.name}" loading="lazy"
-          onerror="this.style.display='none'">
-        <div class="product-info">
-          <span class="product-badge">${p.badge}</span>
-          <p class="product-name">${p.name}</p>
-          <p class="product-price">${p.price} <span style="font-size:0.7rem;color:var(--text-mid);font-weight:300;">/ botella</span></p>
+<!-- PRODUCT MODAL -->
+<div class="product-modal-overlay" id="productModal" onclick="closeProductModal(event)">
+  <div class="product-modal">
+    <div class="pm-img-side">
+      <button class="pm-close" onclick="closeProductModalBtn()">✕</button>
+      <img id="pmImg" src="" alt="">
+    </div>
+    <div class="pm-info-side">
+      <span class="pm-badge" id="pmBadge"></span>
+      <h2 class="pm-name" id="pmName"></h2>
+      <p class="pm-region" id="pmRegion"></p>
+      <div class="pm-price-row">
+        <span class="pm-price" id="pmPrice"></span>
+        <span class="pm-price-pro-label">/ botella · IVA no incluido</span>
+      </div>
+      <div class="pm-divider"></div>
+      <div class="pm-details" id="pmDetails"></div>
+      <p class="pm-desc" id="pmDesc"></p>
+      <div class="pm-qty-row">
+        <div class="qty-control">
+          <button class="qty-btn" onclick="changeQty(-1)">−</button>
+          <span class="qty-val" id="modalQty">1</span>
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
         </div>
-      </a>
+        <button class="pm-add-btn" onclick="addToCartFromModal()">Añadir al carrito</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <h2 class="cart-drawer-title">Tu carrito</h2>
+    <button class="cart-drawer-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span class="cart-subtotal-label">Subtotal</span>
+      <span class="cart-subtotal-val" id="cartTotal">0,00 €</span>
+    </div>
+    <button class="cart-checkout-btn">Finalizar pedido →</button>
+    <button class="cart-continue" onclick="toggleCart()">Seguir comprando</button>
+    <p class="cart-note">Envío gratuito a partir de 150 € · IVA no incluido</p>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ── DATOS CATÁLOGO ──
+const BASE = 'https://www.campoluzenoteca.com';
+const products = [
+  {id:1,name:'Numanthia 2020',region:'Toro, España',price:50.90,badge:'Tinto',cat:'vinos',img:BASE+'/16892-medium_default/numanthia-2020.jpg',url:BASE+'/numanthia-2020-1843.html',details:{bodega:'Numanthia',añada:'2020',uva:'Tinta de Toro',graduación:'14.5%'},desc:'Tinto de gran potencia y elegancia, procedente de viñas viejas en el corazón de la D.O. Toro. Aromas a fruta madura, madera de calidad y un final largo y persistente.',tags:['premium']},
+  {id:2,name:'Lopez de Haro Crianza 2022',region:'Rioja, España',price:8.15,badge:'Tinto',cat:'vinos',img:BASE+'/9403-medium_default/lopez-de-haro-crianza-2022.jpg',url:BASE+'/lopez-de-haro-crianza-2022-5661.html',details:{bodega:'Bretón Criadores',añada:'2022',uva:'Tempranillo',graduación:'13.5%'},desc:'Rioja clásico de crianza con 12 meses en barrica. Equilibrado, frutal y de muy buena relación calidad-precio.',tags:[]},
+  {id:3,name:'Jose Pariente Verdejo 2025',region:'Rueda, España',price:10.95,badge:'Blanco',cat:'vinos',img:BASE+'/4690-medium_default/jose-pariente-verdejo-2025.jpg',url:BASE+'/jose-pariente-verdejo-2025-1862.html',details:{bodega:'José Pariente',añada:'2025',uva:'Verdejo',graduación:'13%'},desc:'Referencia indiscutible de la D.O. Rueda. Fresco, aromático y con la elegancia característica de los Pariente.',tags:['new']},
+  {id:4,name:'Dom Pérignon Vintage 2015',region:'Champagne, Francia',price:237.00,badge:'Champagne',cat:'champagne',img:BASE+'/14558-medium_default/dom-perignon-vintage-2015.jpg',url:BASE+'/dom-perignon-vintage-2015-10673.html',details:{maison:'Moët & Chandon',añada:'2015',uvas:'Chardonnay, Pinot Noir',graduación:'12.5%'},desc:'El icónico Dom Pérignon de la excepcional cosecha 2015. Complejidad, cremosidad y la inconfundible firma de la maison.',tags:['premium']},
+  {id:5,name:'Veuve Clicquot Brut Arrow Madrid',region:'Champagne, Francia',price:64.90,badge:'Champagne',cat:'champagne',img:BASE+'/16882-medium_default/veuve-clicquot-brut-estuchado-arrow-madrid.jpg',url:BASE+'/veuve-clicquot-brut-estuchado-arrow-madrid-10876.html',details:{maison:'Veuve Clicquot',tipo:'Brut NV',uvas:'Pinot Noir, Chardonnay, Meunier',graduación:'12%'},desc:'Edición especial Arrow Madrid de la gran Veuve Clicquot. Potencia, estructura y el inconfundible color amarillo.',tags:['new','regalos']},
+  {id:6,name:'The Macallan 12 Double Cask',region:'Speyside, Escocia',price:74.90,badge:'Whisky',cat:'whisky',img:BASE+'/17101-medium_default/the-macallan-12-years-double-cask.jpg',url:BASE+'/the-macallan-12-years-double-cask-5434.html',details:{destilería:'The Macallan',edad:'12 años',tipo:'Single Malt',graduación:'40%'},desc:'Madurado en barricas de roble americano y europeo previamente usadas con jerez. Vainilla, caramelo y frutos secos.',tags:['premium']},
+  {id:7,name:'Ginebra Gin Mare Capri 1L',region:'Villanova, España',price:39.50,badge:'Gin',cat:'gin',img:BASE+'/11483-medium_default/ginebra-gin-mare-capri.jpg',url:BASE+'/ginebra-gin-mare-capri-6995.html',details:{productor:'Global Premium Brands',tipo:'London Dry',volumen:'1L',graduación:'42.7%'},desc:'Ginebra mediterránea premium elaborada con oliva arbequina, tomillo, romero y albahaca. La quintaesencia del Mediterráneo.',tags:[]},
+  {id:8,name:'Vodka Belvedere Pure B10',region:'Mazovia, Polonia',price:224.15,badge:'Vodka',cat:'vodka',img:BASE+'/13704-medium_default/vodka-belvedere-pure-b10-luminoso.jpg',url:BASE+'/vodka-belvedere-pure-b10-luminoso-10333.html',details:{productor:'LVMH',tipo:'Pure',volumen:'1.75L',graduación:'40%'},desc:'Formato especial luminoso del vodka premium polaco. Elaborado con centeno Dankowskie. Suave, cremoso y de una pureza excepcional.',tags:['premium','regalos']},
+  {id:9,name:'Laurent-Perrier Cuvée Rosé Brut',region:'Tours-sur-Marne, Francia',price:97.50,badge:'Champagne Rosé',cat:'champagne',img:BASE+'/17907-medium_default/laurent-perrier-cuvee-rose-brut.jpg',url:BASE+'/laurent-perrier-cuvee-rose-brut-1339.html',details:{maison:'Laurent-Perrier',tipo:'Rosé Brut NV',uva:'Pinot Noir 100%',graduación:'12%'},desc:'El rosé más icónico del mundo. 100% Pinot Noir en maceración. Fresas, frambuesas y una burbuja finísima.',tags:['premium']},
+  {id:10,name:'Finca Las Caraballas 2024',region:'Rueda, España',price:12.25,badge:'Blanco',cat:'vinos',img:BASE+'/18820-medium_default/finca-las-caraballas-2024.jpg',url:BASE+'/finca-las-caraballas-2024-1574.html',details:{bodega:'Caraballas',añada:'2024',uva:'Verdejo',graduación:'12.5%'},desc:'Verdejo de finca única en Rueda. Expresión pura de la variedad: hierba fresca, pomelo y un fondo mineral elegante.',tags:['new']},
+  {id:11,name:'Hennessy X.O. Horse Year',region:'Cognac, Francia',price:279.50,badge:'Cognac',cat:'cognac',img:BASE+'/17484-medium_default/hennessy-xo-estuchado-horse-year-x-xu-zhen.jpg',url:BASE+'/hennessy-xo-estuchado-horse-year-x-xu-zhen-11601.html',details:{maison:'Hennessy',tipo:'X.O.',edición:'Horse Year – Xu Zhen',graduación:'40%'},desc:'Edición de colección Year of the Horse en colaboración con el artista Xu Zhen. La complejidad del X.O. en un estuche de arte.',tags:['premium','regalos']},
+  {id:12,name:'Le Tribute Gin',region:'Barcelona, España',price:39.45,badge:'Gin',cat:'gin',img:BASE+'/11678-medium_default/le-tribute-gin.jpg',url:BASE+'/le-tribute-gin-5366.html',details:{productor:'MG Destilerías',tipo:'Premium Gin',volumen:'70cl',graduación:'43%'},desc:'Un homenaje a los ingredientes mediterráneos más escasos y valiosos. Elaborado con camomila, neroli y amargón salvaje.',tags:[]},
+];
+
+// ── CARRITO ──
+let cart = [];
+let currentProduct = null;
+let modalQty = 1;
+
+function addToCart(productId, qty=1) {
+  const p = products.find(x=>x.id===productId);
+  if(!p) return;
+  const existing = cart.find(x=>x.id===productId);
+  if(existing) existing.qty += qty;
+  else cart.push({...p, qty});
+  updateCartUI();
+  showToast(`${p.name} añadido al carrito`);
+}
+
+function removeFromCart(productId) {
+  cart = cart.filter(x=>x.id!==productId);
+  updateCartUI();
+}
+
+function changeCartQty(productId, delta) {
+  const item = cart.find(x=>x.id===productId);
+  if(!item) return;
+  item.qty += delta;
+  if(item.qty <= 0) removeFromCart(productId);
+  else updateCartUI();
+}
+
+function updateCartUI() {
+  const total = cart.reduce((s,i)=>s+i.price*i.qty, 0);
+  const count = cart.reduce((s,i)=>s+i.qty, 0);
+  document.getElementById('cartCount').textContent = count;
+  document.getElementById('cartTotal').textContent = total.toFixed(2).replace('.',',') + ' €';
+  const el = document.getElementById('cartItems');
+  if(cart.length===0) {
+    el.innerHTML = `<div class="cart-empty"><span class="cart-empty-icon">🛒</span><p class="cart-empty-text">Tu carrito está vacío</p></div>`;
+  } else {
+    el.innerHTML = cart.map(i=>`
+      <div class="cart-item">
+        <img class="cart-item-img" src="${i.img}" alt="${i.name}" onerror="this.style.opacity='.3'">
+        <div>
+          <p class="cart-item-name">${i.name}</p>
+          <p class="cart-item-region">${i.region}</p>
+          <div class="cart-item-qty-row">
+            <button class="cart-item-qty-btn" onclick="changeCartQty(${i.id},-1)">−</button>
+            <span class="cart-item-qty">${i.qty}</span>
+            <button class="cart-item-qty-btn" onclick="changeCartQty(${i.id},1)">+</button>
+            <button class="cart-item-remove" onclick="removeFromCart(${i.id})">✕</button>
+          </div>
+        </div>
+        <span class="cart-item-price">${(i.price*i.qty).toFixed(2).replace('.',',')} €</span>
+      </div>
     `).join('');
-
-    document.getElementById('modalOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
   }
+}
 
-  function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
+function toggleCart() {
+  document.getElementById('cartDrawer').classList.toggle('open');
+  document.getElementById('cartOverlay').classList.toggle('open');
+}
 
-  function closeModalOutside(e) {
-    if (e.target === document.getElementById('modalOverlay')) closeModal();
-  }
+// ── PRODUCT MODAL ──
+function openProduct(id) {
+  const p = products.find(x=>x.id===id);
+  if(!p) return;
+  currentProduct = p;
+  modalQty = 1;
+  document.getElementById('modalQty').textContent = 1;
+  document.getElementById('pmImg').src = p.img;
+  document.getElementById('pmImg').alt = p.name;
+  document.getElementById('pmBadge').textContent = p.badge;
+  document.getElementById('pmName').textContent = p.name;
+  document.getElementById('pmRegion').textContent = p.region;
+  document.getElementById('pmPrice').textContent = p.price.toFixed(2).replace('.',',') + ' €';
+  document.getElementById('pmDesc').textContent = p.desc;
+  const det = document.getElementById('pmDetails');
+  det.innerHTML = Object.entries(p.details).map(([k,v])=>`
+    <div class="pm-detail">
+      <span class="pm-detail-label">${k.charAt(0).toUpperCase()+k.slice(1)}</span>
+      <span class="pm-detail-val">${v}</span>
+    </div>
+  `).join('');
+  document.getElementById('productModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
 
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+function closeProductModal(e) {
+  if(e.target===document.getElementById('productModal')) closeProductModalBtn();
+}
+function closeProductModalBtn() {
+  document.getElementById('productModal').classList.remove('open');
+  document.body.style.overflow='';
+}
 
-  // ── SCROLL REVEAL ──
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+function changeQty(d) {
+  modalQty = Math.max(1, modalQty+d);
+  document.getElementById('modalQty').textContent = modalQty;
+}
 
-  document.querySelectorAll('.ventajas-grid, .cat-grid, .test-grid, .proceso-steps').forEach(grid => {
-    grid.querySelectorAll('.ventaja, .cat-item, .test-card, .step').forEach((child, i) => {
-      child.style.transitionDelay = `${i * 0.08}s`;
-    });
+function addToCartFromModal() {
+  if(currentProduct) { addToCart(currentProduct.id, modalQty); closeProductModalBtn(); }
+}
+
+// ── RENDER PRODUCTS ──
+function productCardHTML(p) {
+  return `
+    <div class="product-card">
+      <div class="product-img-wrap" onclick="openProduct(${p.id})">
+        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.opacity='.2'">
+        <div class="product-badge-wrap">
+          <span class="badge badge-wine">${p.badge}</span>
+          ${p.tags.includes('new')?'<span class="badge badge-new">Nuevo</span>':''}
+          ${p.tags.includes('premium')?'<span class="badge badge-gold">Premium</span>':''}
+        </div>
+        <button class="product-quick-add" onclick="event.stopPropagation();openProduct(${p.id})">Ver detalles</button>
+      </div>
+      <div class="product-info">
+        <p class="product-name" onclick="openProduct(${p.id})" style="cursor:none">${p.name}</p>
+        <p class="product-region">${p.region}</p>
+        <div class="product-footer">
+          <span class="product-price">${p.price.toFixed(2).replace('.',',')} €</span>
+          <button class="add-to-cart-btn" onclick="addToCart(${p.id})" title="Añadir al carrito">+</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Destacados (4 primeros)
+document.getElementById('featuredGrid').innerHTML = products.slice(0,4).map(productCardHTML).join('');
+
+// Tienda con filtros
+let activeCategory = null;
+function filterCat(cat) {
+  activeCategory = cat;
+  applyFilters();
+  setTimeout(()=>document.getElementById('tienda').scrollIntoView({behavior:'smooth'}),100);
+}
+
+function applyFilters() {
+  const cats = ['vinos','champagne','whisky','gin','cognac','regalos'].filter(c=>document.getElementById('f-'+c)?.checked);
+  const priceMin = parseFloat(document.getElementById('priceMin')?.value)||0;
+  const priceMax = parseFloat(document.getElementById('priceMax')?.value)||Infinity;
+  const onlyNew = document.getElementById('f-new')?.checked;
+  const onlyPremium = document.getElementById('f-premium')?.checked;
+  const sort = document.getElementById('shopSort')?.value||'default';
+
+  let filtered = [...products];
+
+  // Filtro por categoría pill
+  if(activeCategory) filtered = filtered.filter(p=>p.cat===activeCategory || p.tags.includes(activeCategory));
+
+  // Filtros sidebar
+  if(cats.length) filtered = filtered.filter(p=>cats.includes(p.cat)||cats.some(c=>p.tags.includes(c)));
+  if(priceMin>0) filtered = filtered.filter(p=>p.price>=priceMin);
+  if(priceMax<Infinity) filtered = filtered.filter(p=>p.price<=priceMax);
+  if(onlyNew) filtered = filtered.filter(p=>p.tags.includes('new'));
+  if(onlyPremium) filtered = filtered.filter(p=>p.tags.includes('premium'));
+
+  if(sort==='price-asc') filtered.sort((a,b)=>a.price-b.price);
+  else if(sort==='price-desc') filtered.sort((a,b)=>b.price-a.price);
+  else if(sort==='name') filtered.sort((a,b)=>a.name.localeCompare(b.name));
+
+  document.getElementById('shopCount').textContent = `Mostrando ${filtered.length} producto${filtered.length!==1?'s':''}`;
+  document.getElementById('shopGrid').innerHTML = filtered.length
+    ? filtered.map(productCardHTML).join('')
+    : '<p style="color:var(--text-mid);grid-column:1/-1;padding:3rem;text-align:center;font-family:\'Cormorant Garamond\',serif;font-size:1.1rem">No se encontraron productos con estos filtros.</p>';
+}
+
+applyFilters();
+
+// ── TOAST ──
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = '✓  ' + msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2800);
+}
+
+// ── FORMSPREE ──
+const form = document.getElementById('contactForm');
+if(form) {
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Enviando…'; btn.disabled=true;
+    try {
+      const res = await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+      if(res.ok){ form.style.display='none'; document.getElementById('formSuccess').style.display='block'; }
+      else{ btn.textContent='Error. Inténtelo de nuevo.'; btn.disabled=false; }
+    } catch { btn.textContent='Error de conexión.'; btn.disabled=false; }
   });
+}
+
+// ── NAV SCROLL ──
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',scrollY>60);
+});
+
+// ── MOBILE MENU ──
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// ── CURSOR ──
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px';
+  ring.style.left=e.clientX+'px'; ring.style.top=e.clientY+'px';
+});
+document.querySelectorAll('a,button,[onclick]').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.classList.add('hover');ring.classList.add('hover')});
+  el.addEventListener('mouseleave',()=>{cur.classList.remove('hover');ring.classList.remove('hover')});
+});
+
+// ── REVEAL ──
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target)}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ── ESCAPE KEY ──
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeProductModalBtn();if(document.getElementById('cartDrawer').classList.contains('open'))toggleCart();}
+});
 </script>
 </body>
 </html>
