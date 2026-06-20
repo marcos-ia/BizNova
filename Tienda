@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda · Campoluz Levante</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cring"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="index.html" onclick="closeMob()">Inicio</a>
+  <a href="tienda.html" onclick="closeMob()">Tienda</a>
+  <a href="catas.html" onclick="closeMob()">Catas</a>
+  <a href="nosotros.html" onclick="closeMob()">Nosotros</a>
+  <a href="ubicacion.html" onclick="closeMob()">Ubicación</a>
+  <a href="contacto.html" onclick="closeMob()" style="color:var(--amber)">Profesionales</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Campoluz <span>·</span> Levante</a>
+  <ul class="nav-links">
+    <li><a href="tienda.html" style="color:var(--amber)">Tienda</a></li>
+    <li><a href="catas.html">Catas</a></li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="ubicacion.html">Ubicación</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="toggleCart()">🛒<span class="cart-count" id="cartCount">0</span></button>
+    <a href="contacto.html" class="nav-cta">Profesionales</a>
+    <button class="nav-toggle" onclick="toggleMob()" id="navTog"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+
+<!-- ═══ TIENDA ═══ -->
+<section class="shop" id="tienda" style="padding-top:9rem">
+  <p class="s-tag reveal">Catálogo</p>
+  <h2 class="s-title reveal">Nuestra <em>tienda</em></h2>
+  <p class="s-sub reveal">Selección de las mejores referencias con entrega en 24–48 horas.</p>
+  <div class="shop-layout">
+    <aside class="shop-sidebar reveal">
+      <div class="sidebar-sec">
+        <p class="sidebar-title">Categoría</p>
+        <div class="f-opt"><input type="checkbox" id="f-vinos" onchange="applyFilters()"><label for="f-vinos">Vinos</label></div>
+        <div class="f-opt"><input type="checkbox" id="f-champagne" onchange="applyFilters()"><label for="f-champagne">Champagne & Cava</label></div>
+        <div class="f-opt"><input type="checkbox" id="f-whisky" onchange="applyFilters()"><label for="f-whisky">Whisky</label></div>
+        <div class="f-opt"><input type="checkbox" id="f-cognac" onchange="applyFilters()"><label for="f-cognac">Cognac</label></div>
+        <div class="f-opt"><input type="checkbox" id="f-vodka" onchange="applyFilters()"><label for="f-vodka">Vodka</label></div>
+        <div class="f-opt"><input type="checkbox" id="f-regalos" onchange="applyFilters()"><label for="f-regalos">Estuches & Regalos</label></div>
+      </div>
+      <div class="sidebar-sec">
+        <p class="sidebar-title">Precio</p>
+        <div class="price-row">
+          <input type="number" id="priceMin" placeholder="0" onchange="applyFilters()">
+          <span>—</span>
+          <input type="number" id="priceMax" placeholder="900" onchange="applyFilters()">
+          <span>€</span>
+        </div>
+      </div>
+      <div class="sidebar-sec">
+        <p class="sidebar-title">Colección</p>
+        <div class="f-opt"><input type="checkbox" id="f-new" onchange="applyFilters()"><label for="f-new">Novedades</label></div>
+        <div class="f-opt"><input type="checkbox" id="f-premium" onchange="applyFilters()"><label for="f-premium">Premium</label></div>
+        <div class="f-opt"><input type="checkbox" id="f-regalos2" onchange="applyFilters()"><label for="f-regalos2">Ediciones limitadas</label></div>
+      </div>
+    </aside>
+    <div>
+      <div class="shop-toolbar">
+        <span class="shop-count" id="shopCount">Mostrando todos los productos</span>
+        <div class="shop-sort">
+          <select id="shopSort" onchange="applyFilters()">
+            <option value="default">Orden por defecto</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="name">Nombre A–Z</option>
+          </select>
+        </div>
+      </div>
+      <div class="shop-grid" id="shopGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOTO EDITORIAL STRIP -->
+<div class="editorial-photos">
+  <div class="ep-item">
+    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=700&q=80" alt="Viñedo filas" loading="lazy">
+    <div class="ep-caption">
+      <p class="ep-cap-tag">Origen</p>
+      <p class="ep-cap-title">De la viña<br>a tu mesa</p>
+    </div>
+  </div>
+  <div class="ep-item">
+    <img src="https://images.unsplash.com/photo-1567696911980-2eed69a46042?w=700&q=80" alt="Barricas bodega" loading="lazy">
+    <div class="ep-caption">
+      <p class="ep-cap-tag">Crianza</p>
+      <p class="ep-cap-title">El tiempo<br>como aliado</p>
+    </div>
+  </div>
+  <div class="ep-item">
+    <img src="https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?w=700&q=80" alt="Cata de vino" loading="lazy">
+    <div class="ep-caption">
+      <p class="ep-cap-tag">Selección</p>
+      <p class="ep-cap-title">Solo lo mejor<br>en cada copa</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">Campoluz <span>·</span> Levante</div>
+  <p class="f-copy">© 2025 Campoluz Levante S.L. · Paterna, Valencia · Prohibida la venta a menores de 18 años</p>
+  <ul class="f-links"><li><a href="#">Privacidad</a></li><li><a href="#">Legal</a></li><li><a href="#">Cookies</a></li></ul>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="pm-overlay" id="pmOverlay" onclick="closePM(event)">
+  <div class="pm-box">
+    <div class="pm-img-side">
+      <button class="pm-close" onclick="closePMBtn()">✕</button>
+      <img id="pmImg" src="" alt="">
+    </div>
+    <div class="pm-info">
+      <span class="pm-badge" id="pmBadge"></span>
+      <h2 class="pm-name" id="pmName"></h2>
+      <p class="pm-region" id="pmRegion"></p>
+      <div class="pm-price-row"><span class="pm-price" id="pmPrice"></span><span class="pm-price-note">/ botella · IVA no incluido</span></div>
+      <div class="pm-div"></div>
+      <div class="pm-dets" id="pmDets"></div>
+      <p class="pm-desc-text" id="pmDesc"></p>
+      <div class="pm-qty-row">
+        <div class="qty-ctrl">
+          <button class="qty-btn" onclick="chgQty(-1)">−</button>
+          <span class="qty-val" id="mqty">1</span>
+          <button class="qty-btn" onclick="chgQty(1)">+</button>
+        </div>
+        <button class="pm-add-btn" onclick="addFromModal()">Añadir al carrito</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOvl" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrw">
+  <div class="cart-hdr"><h2 class="cart-title">Tu carrito</h2><button class="cart-cls" onclick="toggleCart()">✕</button></div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-ftr">
+    <div class="cart-sub"><span class="cart-sub-lbl">Subtotal</span><span class="cart-sub-val" id="cartTotal">0,00 €</span></div>
+    <button class="cart-checkout">Finalizar pedido →</button>
+    <button class="cart-cont" onclick="toggleCart()">Seguir comprando</button>
+    <p class="cart-note-txt">Envío gratuito a partir de 150 € · IVA no incluido</p>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="site.js"></script>
+</body>
+</html>
