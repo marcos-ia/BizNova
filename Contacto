@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto · Campoluz Levante</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cring"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="index.html" onclick="closeMob()">Inicio</a>
+  <a href="tienda.html" onclick="closeMob()">Tienda</a>
+  <a href="catas.html" onclick="closeMob()">Catas</a>
+  <a href="nosotros.html" onclick="closeMob()">Nosotros</a>
+  <a href="ubicacion.html" onclick="closeMob()">Ubicación</a>
+  <a href="contacto.html" onclick="closeMob()" style="color:var(--amber)">Profesionales</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Campoluz <span>·</span> Levante</a>
+  <ul class="nav-links">
+    <li><a href="tienda.html">Tienda</a></li>
+    <li><a href="catas.html">Catas</a></li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="ubicacion.html">Ubicación</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="toggleCart()">🛒<span class="cart-count" id="cartCount">0</span></button>
+    <a href="contacto.html" class="nav-cta">Profesionales</a>
+    <button class="nav-toggle" onclick="toggleMob()" id="navTog"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+
+<!-- ═══ CONTACTO ═══ -->
+<div class="contacto-sec" id="contacto" style="margin-top:5rem">
+  <div class="c-left">
+    <p class="s-tag">Área profesional</p>
+    <h2 class="s-title">Hablemos de<br><em>su negocio</em></h2>
+    <p class="s-sub" style="margin-top:1rem">Condiciones exclusivas para hostelería, restauración y empresas. Un asesor dedicado a su cuenta desde el primer día.</p>
+    <div class="c-items">
+      <div class="ci"><div class="ci-icon">📍</div><div><span class="ci-label">Dirección</span><span class="ci-text">C/ del Comercio, 14 – Nave B, 46980 Paterna</span></div></div>
+      <div class="ci"><div class="ci-icon">📞</div><div><span class="ci-label">Teléfono</span><span class="ci-text">961 23 45 67 · Móvil: 611 234 567</span></div></div>
+      <div class="ci"><div class="ci-icon">✉️</div><div><span class="ci-label">Email</span><span class="ci-text">profesionales@campoluzlevante.com</span></div></div>
+      <div class="ci"><div class="ci-icon">🕐</div><div><span class="ci-label">Horario</span><span class="ci-text">Lun–Vie: 8:30–17:30 · Sáb: 9:00–13:00</span></div></div>
+    </div>
+  </div>
+  <div class="c-right">
+    <p class="form-title">Solicitar información</p>
+    <div id="formSuccess"><p>¡Mensaje enviado!</p><p>Le contactaremos en menos de 24 horas.</p></div>
+    <form id="contactForm" action="https://formspree.io/f/xdkqvgvl" method="POST">
+      <input type="text" name="_gotcha" style="display:none">
+      <input type="hidden" name="_subject" value="Nuevo contacto – Campoluz Levante">
+      <div class="form-grid">
+        <div class="fg"><label>Nombre</label><input type="text" name="nombre" placeholder="Nombre completo" required></div>
+        <div class="fg"><label>Empresa</label><input type="text" name="empresa" placeholder="Nombre del negocio"></div>
+        <div class="fg"><label>Email</label><input type="email" name="email" placeholder="correo@empresa.com" required></div>
+        <div class="fg"><label>Teléfono</label><input type="tel" name="telefono" placeholder="+34 000 000 000"></div>
+        <div class="fg"><label>Tipo de negocio</label>
+          <select name="tipo"><option value="" disabled selected>Seleccione</option><option>Restaurante</option><option>Hotel</option><option>Bar / Cocktail bar</option><option>Empresa / Eventos</option><option>Particular</option><option>Otro</option></select>
+        </div>
+        <div class="fg"><label>Volumen mensual</label>
+          <select name="volumen"><option value="" disabled selected>Seleccione</option><option>Menos de 500 €</option><option>500–2.000 €</option><option>2.000–5.000 €</option><option>Más de 5.000 €</option></select>
+        </div>
+        <div class="fg full"><label>Mensaje</label><textarea name="mensaje" placeholder="¿En qué podemos ayudarle?"></textarea></div>
+        <div class="form-check">
+          <input type="checkbox" id="priv" required>
+          <label for="priv">Acepto la <a href="#">política de privacidad</a> y los <a href="#">términos y condiciones</a>.</label>
+        </div>
+      </div>
+      <button type="submit" class="btn-submit" id="submitBtn">Enviar mensaje <span>→</span></button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">Campoluz <span>·</span> Levante</div>
+  <p class="f-copy">© 2025 Campoluz Levante S.L. · Paterna, Valencia · Prohibida la venta a menores de 18 años</p>
+  <ul class="f-links"><li><a href="#">Privacidad</a></li><li><a href="#">Legal</a></li><li><a href="#">Cookies</a></li></ul>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="pm-overlay" id="pmOverlay" onclick="closePM(event)">
+  <div class="pm-box">
+    <div class="pm-img-side">
+      <button class="pm-close" onclick="closePMBtn()">✕</button>
+      <img id="pmImg" src="" alt="">
+    </div>
+    <div class="pm-info">
+      <span class="pm-badge" id="pmBadge"></span>
+      <h2 class="pm-name" id="pmName"></h2>
+      <p class="pm-region" id="pmRegion"></p>
+      <div class="pm-price-row"><span class="pm-price" id="pmPrice"></span><span class="pm-price-note">/ botella · IVA no incluido</span></div>
+      <div class="pm-div"></div>
+      <div class="pm-dets" id="pmDets"></div>
+      <p class="pm-desc-text" id="pmDesc"></p>
+      <div class="pm-qty-row">
+        <div class="qty-ctrl">
+          <button class="qty-btn" onclick="chgQty(-1)">−</button>
+          <span class="qty-val" id="mqty">1</span>
+          <button class="qty-btn" onclick="chgQty(1)">+</button>
+        </div>
+        <button class="pm-add-btn" onclick="addFromModal()">Añadir al carrito</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOvl" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrw">
+  <div class="cart-hdr"><h2 class="cart-title">Tu carrito</h2><button class="cart-cls" onclick="toggleCart()">✕</button></div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-ftr">
+    <div class="cart-sub"><span class="cart-sub-lbl">Subtotal</span><span class="cart-sub-val" id="cartTotal">0,00 €</span></div>
+    <button class="cart-checkout">Finalizar pedido →</button>
+    <button class="cart-cont" onclick="toggleCart()">Seguir comprando</button>
+    <p class="cart-note-txt">Envío gratuito a partir de 150 € · IVA no incluido</p>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="site.js"></script>
+</body>
+</html>
